@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978182159934",
+    "project_id": "agenda-app-72d95",
+    "storage_bucket": "agenda-app-72d95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978182159934:android:bd44ff7bf587f119ed5b6f",
+        "android_client_info": {
+          "package_name": "com.bgallego.agenda_online"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGIyGs9EYVGzLW_h4gWdW8MSAicuvEo3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
