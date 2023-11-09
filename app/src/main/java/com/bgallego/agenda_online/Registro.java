@@ -1,9 +1,5 @@
 package com.bgallego.agenda_online;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,10 +42,12 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Registrar");
-        // Flecha hacia atras
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
+        if (actionBar != null) {
+            actionBar.setTitle("Registrar");
+            // Flecha hacia atras
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
 
         NombreEt = findViewById(R.id.NombreEt);
         CorreoEt = findViewById(R.id.CorreoEt);
@@ -86,17 +88,13 @@ public class Registro extends AppCompatActivity {
 
         if (TextUtils.isEmpty(nombre)) {
             Toast.makeText(this, "Ingrese nombre", Toast.LENGTH_SHORT).show();
-        } 
-        else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
             Toast.makeText(this, "Ingrese correo", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(password)) {
+        } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Ingrese contraseña", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(confirmarpassword)) {
+        } else if (TextUtils.isEmpty(confirmarpassword)) {
             Toast.makeText(this, "Confirme contraseña", Toast.LENGTH_SHORT).show();
-        }
-        else if (!password.equals(confirmarpassword)) {
+        } else if (!password.equals(confirmarpassword)) {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
 
         } else {
@@ -110,17 +108,17 @@ public class Registro extends AppCompatActivity {
 
         // Crear un usuario en Firebase
         firebaseAuth.createUserWithEmailAndPassword(correo, password)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                .addOnSuccessListener(this, new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         //
                         GuardarInformacion();
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+                }).addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(Registro.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registro.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -140,8 +138,8 @@ public class Registro extends AppCompatActivity {
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
         databaseReference.child(uid)
-        .setValue(Datos)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                .setValue(Datos)
+                .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
@@ -149,18 +147,18 @@ public class Registro extends AppCompatActivity {
                         startActivity(new Intent(Registro.this, MenuPrincipal.class));
                         finish();
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+                }).addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(Registro.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registro.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-       onBackPressed();
+        onBackPressed();
         return super.onSupportNavigateUp();
     }
 }
