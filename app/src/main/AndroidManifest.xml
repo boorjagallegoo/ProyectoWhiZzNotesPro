@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda_Online">
         <activity
+            android:name=".AgregarNota.Agregar_Nota"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipal"
             android:exported="false" />
         <activity

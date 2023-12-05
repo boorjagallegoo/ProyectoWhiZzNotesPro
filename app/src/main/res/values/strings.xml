@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Agenda Personal</string>
 
     <!-- MAIN ACTIVITY -->
@@ -15,7 +15,7 @@
     <string name="TengoUnaCuentaTXT">Tengo una cuenta </string>
 
     <!-- MENÚ PRINCIPAL -->
-    <string name="CerrarSesion">Salir</string>
+    <string name="CerrarSesion" tools:ignore="DuplicateDefinition">Salir</string>
 
     <!-- ACTIVITY LOGIN -->
     <string name="IniciarSesionTXT">Iniciar sesión</string>
@@ -26,8 +26,27 @@
 
     <!-- MENÚ PRINCIPAL -->
     <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="UidPrincipal"> -- </string>
     <string name="NombresPrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
+
+    <string name="AgregarNotas">Agregar</string>
+    <string name="ListaNotas">Mis Notas</string>
+    <string name="Archivados">Archivados</string>
+    <string name="Perfil">Perfil</string>
+    <string name="AcercaDe">Acerca De</string>
+    <string name="CerrarSesion" tools:ignore="DuplicateDefinition">Salir</string>
+
+    <!-- AGREGAR NOTA -->
+    <string name="Uid_Usuario">Uid del usuario</string>
+    <string name="Correo_usuario">Correo del usuario</string>
+    <string name="Fecha_hora_actual">Fecha y hora actual</string>
+    <string name="Titulo">Título</string>
+    <string name="Descripcion">Descripción</string>
+    <string name="Btn_Calendario">Calendario</string>
+    <string name="Fecha">00/00/0000</string>
+    <string name="Estado">No finalizado</string>
+
 
 </resources>
 
