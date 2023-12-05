@@ -14,9 +14,6 @@
     <string name="RegistrarUsuario">Registrar</string>
     <string name="TengoUnaCuentaTXT">Tengo una cuenta </string>
 
-    <!-- MENÚ PRINCIPAL -->
-    <string name="CerrarSesion" tools:ignore="DuplicateDefinition">Salir</string>
-
     <!-- ACTIVITY LOGIN -->
     <string name="IniciarSesionTXT">Iniciar sesión</string>
     <string name="CorreoLogin">Correo</string>
@@ -35,7 +32,7 @@
     <string name="Archivados">Archivados</string>
     <string name="Perfil">Perfil</string>
     <string name="AcercaDe">Acerca De</string>
-    <string name="CerrarSesion" tools:ignore="DuplicateDefinition">Salir</string>
+    <string name="CerrarSesion">Salir</string>
 
     <!-- AGREGAR NOTA -->
     <string name="Uid_Usuario">Uid del usuario</string>
