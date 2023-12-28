@@ -28,6 +28,7 @@ public class Agregar_Nota extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_nota);
 
+        // Creación de la flecha para atras.
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("");
         actionBar.setDisplayShowHomeEnabled(true);
@@ -102,6 +103,13 @@ public class Agregar_Nota extends AppCompatActivity {
 
         Uid_Usuario.setText(uid_recuperado);
         Correo_usuario.setText(correo_recuperado);
+    }
+
+    // Acción que nos permite regresar a la actividad anterior
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 
     private void Obtener_Fecha_Hora_Actual() {
