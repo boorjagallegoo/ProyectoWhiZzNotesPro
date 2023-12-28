@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Agenda Personal</string>
+    <string name="app_name">WhiZzNotes Pro</string>
 
     <!-- MAIN ACTIVITY -->
     <string name="Btn_Login">Login</string>
@@ -7,7 +7,7 @@
 
     <!-- ACTIVITY REGISTRO -->
     <string name="CrearCuentaTXT">Crear una cuenta</string>
-    <string name="NombreEt">Nombres</string>
+    <string name="NombreEt">Nombre</string>
     <string name="CorreoEt">Correo electrónico</string>
     <string name="ContraseñaEt">Contraseña</string>
     <string name="ConfirmarContraseñaEt">Confirmar contraseña</string>
