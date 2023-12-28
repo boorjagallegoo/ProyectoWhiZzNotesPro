@@ -97,6 +97,11 @@ public class Agregar_Nota extends AppCompatActivity {
     }
 
     private void ObtenerDatos() {
+        String uid_recuperado = getIntent().getStringExtra("Uid");
+        String correo_recuperado = getIntent().getStringExtra("Correo");
+
+        Uid_Usuario.setText(uid_recuperado);
+        Correo_usuario.setText(correo_recuperado);
     }
 
     private void Obtener_Fecha_Hora_Actual() {
