@@ -1,9 +1,5 @@
 package com.bgallego.agenda_online;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +7,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
 import com.bgallego.agenda_online.ListarNotas.Listar_Notas;
@@ -65,8 +65,16 @@ public class MenuPrincipal extends AppCompatActivity {
         AgregarNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuPrincipal.this, Agregar_Nota.class));
-                Toast.makeText(MenuPrincipal.this, "Agregar Nota", Toast.LENGTH_SHORT).show();
+
+                /* Obtenemos la información de los TextView */
+                String uid_usuario = UidPrincipal.getText().toString();
+                String correo_usuario = CorreoPrincipal.getText().toString();
+
+                /* Pasamos los datos a la siguiente actividad */
+                Intent intent = new Intent(MenuPrincipal.this, Agregar_Nota.class);
+                intent.putExtra("Uid", uid_usuario);
+                intent.putExtra("Correo", correo_usuario);
+                startActivity(intent);
             }
         });
 
