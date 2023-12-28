@@ -15,7 +15,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="135dp"
             android:padding="0.2dp"
             app:cardBackgroundColor="@color/colorPrimaryLight"
             app:cardCornerRadius="5dp"
@@ -41,6 +41,17 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="18dp" />
+
+                <!-- UID -->
+                <TextView
+                    android:id="@+id/UidPrincipal"
+                    android:text="@string/UidPrincipal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoslab"
+                    android:textColor="#ffff"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
 
                 <!-- NOMBRES -->
                 <TextView
@@ -98,11 +109,12 @@
 
                     <Button
                         android:id="@+id/AgregarNotas"
+                        android:text="@string/AgregarNotas"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="@font/robotoslab"
-                        android:text="@string/AgregarNotas" />
+                        android:fontFamily="@font/robotoslab" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -122,12 +134,13 @@
                         android:src="@drawable/lista" />
 
                     <Button
-                        android:id="@+id/ListaNotas"
+                        android:id="@+id/ListarNotas"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/robotoslab"
-                        android:text="@string/ListaNotas" />
+                        android:text="@string/ListarNotas" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -165,6 +178,7 @@
 
                     <Button
                         android:id="@+id/Archivados"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -190,6 +204,7 @@
 
                     <Button
                         android:id="@+id/Perfil"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -232,6 +247,7 @@
 
                     <Button
                         android:id="@+id/AcercaDe"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -257,6 +273,7 @@
 
                     <Button
                         android:id="@+id/CerrarSesion"
+                        android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
