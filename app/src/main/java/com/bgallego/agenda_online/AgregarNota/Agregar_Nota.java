@@ -1,5 +1,6 @@
 package com.bgallego.agenda_online.AgregarNota;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bgallego.agenda_online.Objetos.Nota;
 import com.bgallego.agenda_online.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,6 +33,8 @@ public class Agregar_Nota extends AppCompatActivity {
     Button Btn_Calendario;
 
     int dia, mes, anho;
+
+    DatabaseReference BD_Firebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +92,8 @@ public class Agregar_Nota extends AppCompatActivity {
         Titulo = findViewById(R.id.Titulo);
         Descripcion = findViewById(R.id.Descripcion);
         Btn_Calendario = findViewById(R.id.Btn_Calendario);
+
+        BD_Firebase = FirebaseDatabase.getInstance().getReference();
     }
 
     private void ObtenerDatos() {
@@ -101,6 +109,44 @@ public class Agregar_Nota extends AppCompatActivity {
                 Locale.getDefault()).format(System.currentTimeMillis());
         // EJEMPLO: 30-12-2023/12:18:21 am
         Fecha_hora_actual.setText(Fecha_hora_registro);
+    }
+
+    private void Agregar_Nota() {
+
+        // Obtener los datos
+        String uid_usuario = Uid_Usuario.getText().toString();
+        String correo_usuario = Correo_usuario.getText().toString();
+        String fecha_hora_actual = Fecha_hora_actual.getText().toString();
+        String titulo = Titulo.getText().toString();
+        String descripcion = Descripcion.getText().toString();
+        String fecha = Fecha.getText().toString();
+        String estado = Estado.getText().toString();
+
+        // Validar datos
+        if (!uid_usuario.equals("") && !correo_usuario.equals("") && !fecha_hora_actual.equals("") &&
+                !titulo.equals("") && !descripcion.equals("") && !fecha.equals("") && !estado.equals("")) {
+
+            Nota nota = new Nota(correo_usuario + "/" + fecha_hora_actual,
+                    uid_usuario,
+                    correo_usuario,
+                    fecha_hora_actual,
+                    titulo,
+                    descripcion,
+                    fecha,
+                    estado);
+
+            String Nota_usuario = BD_Firebase.push().getKey();
+            // Establecer el nombre de la BD
+            String Nombre_BD = "Notas_Publicadas";
+
+            BD_Firebase.child(Nombre_BD).child(Nota_usuario).setValue(nota);
+
+            Toast.makeText(this, "Se ha agregado la nota exitosamente", Toast.LENGTH_SHORT).show();
+            onBackPressed();
+
+        } else {
+            Toast.makeText(this, "Llenar todos los campos", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -125,11 +171,7 @@ public class Agregar_Nota extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.Agregar_Nota_BD) {
-            // Lanzar la actividad de agregar nota cuando se selecciona el elemento del menú.
-            new Agregar_Nota();
-
-            // Mostrar un mensaje de éxito mediante un Toast.
-            Toast.makeText(this, "Nota agregada con éxito", Toast.LENGTH_SHORT).show();
+            Agregar_Nota();
         }
         return super.onOptionsItemSelected(item);
     }
