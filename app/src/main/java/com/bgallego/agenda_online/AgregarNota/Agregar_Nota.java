@@ -1,9 +1,5 @@
 package com.bgallego.agenda_online.AgregarNota;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +11,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bgallego.agenda_online.R;
 
@@ -58,38 +58,22 @@ public class Agregar_Nota extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int AnhoSeleccionado, int MesSeleccionado, int DiaSeleccionado) {
 
-                        String diaFormateado, mesFormateado;
+                        // Formatear DIA con cero a la izquierda si es menor a 10
+                        String diaFormateado = (DiaSeleccionado < 10) ? "0" + DiaSeleccionado : String.valueOf(DiaSeleccionado);
 
-                        // OBTENER DIA
-                        if (DiaSeleccionado < 10) {
-                            diaFormateado = "8" + String.valueOf(DiaSeleccionado);
-                            // Antes: 5/12/2023 - Ahora: 05/12/2023
-                        } else {
-                            diaFormateado = String.valueOf(DiaSeleccionado);
-                            // Ejemplo: 12/12/2023
-                        }
-
-                        // OBTENER MES
-                        int Mes = MesSeleccionado + 1;
-
-                        if (Mes < 10) {
-                            mesFormateado = "8" + String.valueOf(Mes);
-                            // Antes: 05/3/2023 - Ahora: 05/03/2023
-                        } else {
-                            mesFormateado = String.valueOf(Mes);
-                            // Ejemplo: 12/10/2023 - 12/11/2023 - 12/12/2023
-                        }
+                        // Formatear MES con cero a la izquierda si es menor a 10
+                        int Mes = MesSeleccionado + 1;  // El mes está indexado desde 0
+                        String mesFormateado = (Mes < 10) ? "0" + Mes : String.valueOf(Mes);
 
                         // Setear fecha en TextView
                         Fecha.setText(diaFormateado + "/" + mesFormateado + "/" + AnhoSeleccionado);
 
                     }
-                }
-                , anho, mes, dia);
+                }, anho, mes, dia);
                 datePickerDialog.show();
-
             }
         });
+
     }
 
     private void InicializarVariables() {
