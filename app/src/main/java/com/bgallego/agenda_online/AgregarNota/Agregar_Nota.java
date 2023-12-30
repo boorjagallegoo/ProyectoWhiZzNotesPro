@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bgallego.agenda_online.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class Agregar_Nota extends AppCompatActivity {
 
@@ -113,6 +115,10 @@ public class Agregar_Nota extends AppCompatActivity {
     }
 
     private void Obtener_Fecha_Hora_Actual() {
+        String Fecha_hora_registro = new SimpleDateFormat("dd-MM-yyyy/HH:mm:ss a",
+                Locale.getDefault()).format(System.currentTimeMillis());
+        // EJEMPLO: 30-12-2023/12:18:21 am
+        Fecha_hora_actual.setText(Fecha_hora_registro);
     }
 
 }
