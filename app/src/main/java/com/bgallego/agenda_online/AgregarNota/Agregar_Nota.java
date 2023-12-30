@@ -1,15 +1,20 @@
 package com.bgallego.agenda_online.AgregarNota;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.bgallego.agenda_online.R;
 
@@ -107,13 +112,6 @@ public class Agregar_Nota extends AppCompatActivity {
         Correo_usuario.setText(correo_recuperado);
     }
 
-    // Acción que nos permite regresar a la actividad anterior
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
-
     private void Obtener_Fecha_Hora_Actual() {
         String Fecha_hora_registro = new SimpleDateFormat("dd-MM-yyyy/HH:mm:ss a",
                 Locale.getDefault()).format(System.currentTimeMillis());
@@ -121,4 +119,41 @@ public class Agregar_Nota extends AppCompatActivity {
         Fecha_hora_actual.setText(Fecha_hora_registro);
     }
 
+    /**
+     * Método llamado para crear el menú de opciones en la barra de acción.
+     *
+     * @param menu El menú en el que se inflarán los elementos de la barra de acción.
+     * @return Devuelve true para que el menú se muestre; si se devuelve false, no se mostrará.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_agenda, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * Se llama cuando se selecciona un elemento del menú de opciones.
+     *
+     * @param item El elemento de menú seleccionado.
+     * @return Devuelve true si el evento se gestionó correctamente, de lo contrario, devuelve false.
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Agregar_Nota_BD) {
+            // Lanzar la actividad de agregar nota cuando se selecciona el elemento del menú.
+            new Agregar_Nota();
+
+            // Mostrar un mensaje de éxito mediante un Toast.
+            Toast.makeText(this, "Nota agregada con éxito", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    // Acción que nos permite regresar a la actividad anterior
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }
