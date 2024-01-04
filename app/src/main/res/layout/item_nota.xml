@@ -14,81 +14,102 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="5dp">
 
-        <!-- Id de la nota -->
-        <TextView
-            android:id="@+id/Id_nota_Item"
-            android:text="@string/Id_nota_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <!-- ICONO -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-        <!-- Uid de usuario -->
-        <TextView
-            android:id="@+id/Uid_Usuario_Item"
-            android:text="@string/Uid_Usuario_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icono_item_nota"/>
 
-        <!-- Correo de la nota -->
-        <TextView
-            android:id="@+id/Correo_usuario_Item"
-            android:text="@string/Correo_usuario_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <!-- Fecha y hora de registro -->
-        <TextView
-            android:id="@+id/Fecha_hora_registro_Item"
-            android:text="@string/Fecha_hora_registro_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/robotoslab"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="7dp">
 
-        <!-- Título de la nota -->
-        <TextView
-            android:id="@+id/Titulo_Item"
-            android:text="@string/Titulo_Item"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Id de la nota -->
+            <TextView
+                android:id="@+id/Id_nota_Item"
+                android:text="@string/Id_nota_Item"
+                android:visibility="gone"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <!-- Descripción de la nota -->
-        <TextView
-            android:id="@+id/Descripcion_Item"
-            android:text="@string/Descripcion_Item"
-            android:textSize="18sp"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Uid de usuario -->
+            <TextView
+                android:id="@+id/Uid_Usuario_Item"
+                android:text="@string/Uid_Usuario_Item"
+                android:visibility="gone"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <!-- Fecha de la nota -->
-        <TextView
-            android:id="@+id/Fecha_Item"
-            android:text="@string/Fecha_Item"
-            android:textSize="18sp"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Correo de la nota -->
+            <TextView
+                android:id="@+id/Correo_usuario_Item"
+                android:text="@string/Correo_usuario_Item"
+                android:visibility="gone"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <!-- Estado de la nota -->
-        <TextView
-            android:id="@+id/Estado_Item"
-            android:text="@string/Estado_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/robotoslab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <!-- Fecha y hora de registro -->
+            <TextView
+                android:id="@+id/Fecha_hora_registro_Item"
+                android:text="@string/Fecha_hora_registro_Item"
+                android:visibility="gone"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Título de la nota -->
+            <TextView
+                android:id="@+id/Titulo_Item"
+                android:text="@string/Titulo_Item"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Descripción de la nota -->
+            <TextView
+                android:id="@+id/Descripcion_Item"
+                android:text="@string/Descripcion_Item"
+                android:textSize="18sp"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Fecha de la nota -->
+            <TextView
+                android:id="@+id/Fecha_Item"
+                android:text="@string/Fecha_Item"
+                android:textSize="18sp"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Estado de la nota -->
+            <TextView
+                android:id="@+id/Estado_Item"
+                android:text="@string/Estado_Item"
+                android:visibility="gone"
+                android:fontFamily="@font/robotoslab"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
