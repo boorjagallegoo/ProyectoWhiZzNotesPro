@@ -1,6 +1,7 @@
 package com.bgallego.agenda_online.ListarNotas;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +37,10 @@ public class Listar_Notas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_notas);
 
-
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle("Mis notas");
-            // Flecha hacia atras
+            // Flecha hacia atrás
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
         }
@@ -54,10 +54,16 @@ public class Listar_Notas extends AppCompatActivity {
     }
 
     private void ListarNotasUsuarios() {
-        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(BASE_DE_DATOS, Nota.class).build();
+        options = new FirebaseRecyclerOptions.Builder<Nota>()
+                .setQuery(BASE_DE_DATOS.orderByKey(), Nota.class)
+                .build();
+
+
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Nota, ViewHolder_Nota>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolder_nota, int position, @NonNull Nota nota) {
+                Log.d("Notas", "Contenido de la nota: " + nota.toString());
+
                 viewHolder_nota.SetearDatos(
                         getApplicationContext(),
                         nota.getId_nota(),
@@ -71,6 +77,7 @@ public class Listar_Notas extends AppCompatActivity {
                 );
             }
 
+            @NonNull
             @Override
             public ViewHolder_Nota onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nota, parent, false);
@@ -96,8 +103,6 @@ public class Listar_Notas extends AppCompatActivity {
 
         recyclerviewNotas.setLayoutManager(linearLayoutManager);
         recyclerviewNotas.setAdapter(firebaseRecyclerAdapter);
-
-
     }
 
     @Override
