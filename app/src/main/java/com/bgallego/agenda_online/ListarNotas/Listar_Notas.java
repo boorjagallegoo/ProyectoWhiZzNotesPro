@@ -1,26 +1,24 @@
 package com.bgallego.agenda_online.ListarNotas;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bgallego.agenda_online.Objetos.Nota;
+import com.bgallego.agenda_online.R;
 import com.bgallego.agenda_online.ViewHolder.ViewHolder_Nota;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.bgallego.agenda_online.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.jetbrains.annotations.NotNull;
 
 public class Listar_Notas extends AppCompatActivity {
 
@@ -38,11 +36,14 @@ public class Listar_Notas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_notas);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Mis notas");
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Mis notas");
+            // Flecha hacia atras
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
 
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerviewNotas.setHasFixedSize(true);
@@ -50,14 +51,13 @@ public class Listar_Notas extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Notas_Publicadas");
         ListarNotasUsuarios();
-
     }
 
-    private void ListarNotasUsuarios(){
+    private void ListarNotasUsuarios() {
         options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(BASE_DE_DATOS, Nota.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Nota, ViewHolder_Nota>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolder_nota, int position, @NotNull Nota nota) {
+            protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolder_nota, int position, @NonNull Nota nota) {
                 viewHolder_nota.SetearDatos(
                         getApplicationContext(),
                         nota.getId_nota(),
@@ -72,8 +72,8 @@ public class Listar_Notas extends AppCompatActivity {
             }
 
             @Override
-            public ViewHolder_Nota onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nota,parent,false);
+            public ViewHolder_Nota onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nota, parent, false);
                 ViewHolder_Nota viewHolder_nota = new ViewHolder_Nota(view);
                 viewHolder_nota.setOnClickListener(new ViewHolder_Nota.ClickListener() {
                     @Override
@@ -97,12 +97,13 @@ public class Listar_Notas extends AppCompatActivity {
         recyclerviewNotas.setLayoutManager(linearLayoutManager);
         recyclerviewNotas.setAdapter(firebaseRecyclerAdapter);
 
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (firebaseRecyclerAdapter!=null){
+        if (firebaseRecyclerAdapter != null) {
             firebaseRecyclerAdapter.startListening();
         }
     }
