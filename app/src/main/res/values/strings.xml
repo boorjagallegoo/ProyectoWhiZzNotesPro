@@ -57,6 +57,11 @@
     <string name="Fecha_Item">00/00/0000</string>
     <string name="Estado_Item">No finalizado</string>
 
+    <!--CUADRO DE DIÁLOGO OPCIONES-->
+    <string name="ElijaOpcionTXT">Elija una opción</string>
+    <string name="CD_Eliminar">Eliminar</string>
+    <string name="CD_Actualizar">Actualizar</string>
+
 
 </resources>
 
