@@ -145,43 +145,59 @@ public class Listar_Notas extends AppCompatActivity {
         recyclerviewNotas.setAdapter(firebaseRecyclerAdapter);
     }
 
+    /**
+     * Método para eliminar una nota mediante un cuadro de diálogo de confirmación.
+     *
+     * @param id_nota El identificador único de la nota que se desea eliminar.
+     */
     private void EliminarNota(String id_nota) {
 
+        // Construir un cuadro de diálogo de confirmación
         AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Notas.this);
         builder.setTitle("Eliminar nota");
         builder.setMessage("¿Desea eliminar la nota?");
+
+        // Configurar el botón positivo (Sí) del cuadro de diálogo
         builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // ELIMINAR NOTA EN BD
                 Query query = BASE_DE_DATOS.orderByChild("id_nota").equalTo(id_nota);
+
+                // Escuchar los cambios en la base de datos para eliminar la nota
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        // Iterar sobre los resultados de la consulta y eliminar la nota
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             ds.getRef().removeValue();
                         }
+                        // Mostrar mensaje de éxito
                         Toast.makeText(Listar_Notas.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
-
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+                        // Mostrar mensaje de error en caso de fallo
                         Toast.makeText(Listar_Notas.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-
                     }
                 });
-            }});
+            }
+        });
 
+        // Configurar el botón negativo (No) del cuadro de diálogo
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                // Mostrar mensaje de cancelación por el usuario
                 Toast.makeText(Listar_Notas.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
             }
         });
 
+        // Crear y mostrar el cuadro de diálogo
         builder.create().show();
     }
+
 
     @Override
     protected void onStart() {
