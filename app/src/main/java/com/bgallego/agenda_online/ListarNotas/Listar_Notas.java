@@ -1,6 +1,8 @@
 package com.bgallego.agenda_online.ListarNotas;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,8 +22,12 @@ import com.bgallego.agenda_online.R;
 import com.bgallego.agenda_online.ViewHolder.ViewHolder_Nota;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Listar_Notas extends AppCompatActivity {
 
@@ -95,7 +101,9 @@ public class Listar_Notas extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
-                        // Toast.makeText(Listar_Notas.this, "on item long click", Toast.LENGTH_SHORT).show();
+
+                        String id_nota = getItem(position).getId_nota();
+
                         // Declarar las vistas
                         Button CD_Eliminar, CD_Actualizar;
 
@@ -109,7 +117,8 @@ public class Listar_Notas extends AppCompatActivity {
                         CD_Eliminar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(Listar_Notas.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
+                               EliminarNota(id_nota);
+                               dialog.dismiss(); // Se cierra automaticamente el cuadro.
 
                             }
                         });
@@ -118,7 +127,7 @@ public class Listar_Notas extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Toast.makeText(Listar_Notas.this, "Actualizar nota", Toast.LENGTH_SHORT).show();
-
+                                dialog.dismiss(); // Se cierra automaticamente el cuadro.
                             }
                         });
                         dialog.show();
@@ -134,6 +143,44 @@ public class Listar_Notas extends AppCompatActivity {
 
         recyclerviewNotas.setLayoutManager(linearLayoutManager);
         recyclerviewNotas.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    private void EliminarNota(String id_nota) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Notas.this);
+        builder.setTitle("Eliminar nota");
+        builder.setMessage("¿Desea eliminar la nota?");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // ELIMINAR NOTA EN BD
+                Query query = BASE_DE_DATOS.orderByChild("id_nota").equalTo(id_nota);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Notas.this, "Nota eliminada", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(Listar_Notas.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }});
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(Listar_Notas.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
     }
 
     @Override
