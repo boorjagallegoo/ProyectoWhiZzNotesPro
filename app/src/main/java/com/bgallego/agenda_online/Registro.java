@@ -127,7 +127,7 @@ public class Registro extends AppCompatActivity {
         progressDialog.setMessage("Guardando su información");
         progressDialog.dismiss();
 
-        //Obtener la identificación de usuario actual
+        // Obtener la identificación de usuario actual
         String uid = firebaseAuth.getUid();
 
         HashMap<String, String> Datos = new HashMap<>();

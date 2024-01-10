@@ -198,7 +198,6 @@ public class Listar_Notas extends AppCompatActivity {
         builder.create().show();
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();

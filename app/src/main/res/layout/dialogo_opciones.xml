@@ -30,16 +30,20 @@
         android:id="@+id/CD_Eliminar"
         android:text="@string/CD_Eliminar"
         android:layout_marginTop="18dp"
+        app:icon="@drawable/icono_eliminar_cd"
+        android:layout_gravity="center"
         android:fontFamily="@font/robotoslab"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/CD_Actualizar"
         android:text="@string/CD_Actualizar"
         android:layout_marginTop="18dp"
+        app:icon="@drawable/icono_actualizar_cd"
+        android:layout_gravity="center"
         android:fontFamily="@font/robotoslab"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
