@@ -104,7 +104,15 @@ public class Listar_Notas extends AppCompatActivity {
                     @Override
                     public void onItemLongClick(View view, int position) {
 
+                        // Obtener los datos de la nota seleccionada
                         String id_nota = getItem(position).getId_nota();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String correo_usuario = getItem(position).getCorreo_usuario();
+                        String fecha_registro = getItem(position).getFecha_hora_actual();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_nota = getItem(position).getFecha_nota();
+                        String estado = getItem(position).getEstado();
 
                         // Declarar las vistas
                         Button CD_Eliminar, CD_Actualizar;
@@ -129,7 +137,17 @@ public class Listar_Notas extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 // Toast.makeText(Listar_Notas.this, "Actualizar nota", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Listar_Notas.this, Actualizar_Nota.class)); // Ir a la actividad Actualizar nota.
+                               // startActivity(new Intent(Listar_Notas.this, Actualizar_Nota.class)); // Ir a la actividad Actualizar nota.
+                                Intent intent = new Intent(Listar_Notas.this, Actualizar_Nota.class);
+                                intent.putExtra("id_nota", id_nota);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("correo_usuario", correo_usuario);
+                                intent.putExtra("fecha_registro", fecha_registro);
+                                intent.putExtra("titulo", titulo);
+                                intent.putExtra("descripcion", descripcion);
+                                intent.putExtra("fecha_nota", fecha_nota);
+                                intent.putExtra("estado", estado);
+                                startActivity(intent);
                                 dialog.dismiss(); // Se cierra automaticamente el cuadro.
                             }
                         });
