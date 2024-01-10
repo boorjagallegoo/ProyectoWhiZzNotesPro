@@ -12,6 +12,15 @@
         android:orientation="vertical"
         android:padding="18dp">
 
+        <!-- ID NOTA -->
+        <TextView
+            android:id="@+id/Id_nota_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoslab"
+            android:hint="@string/Id_nota_A"
+            android:textSize="18sp" />
+
         <!-- UID DEL USUARIO -->
         <TextView
             android:id="@+id/Uid_Usuario_A"
