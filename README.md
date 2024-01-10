@@ -1,4 +1,4 @@
-# [Navigation View : Android STUDIO - JAVA](https://youtu.be/2UP6mdEKXAU, "Crazy Indian Coder - Naviagtion view")
+# [Proyecto : Android STUDIO - JAVA]
 
 **Hola, en este repositorio podrás ver mi proyecto de fin de ciclo en Android Studio usando Java.**
 
