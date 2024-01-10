@@ -3,6 +3,7 @@ package com.bgallego.agenda_online.ListarNotas;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bgallego.agenda_online.ActualizarNota.Actualizar_Nota;
 import com.bgallego.agenda_online.Objetos.Nota;
 import com.bgallego.agenda_online.R;
 import com.bgallego.agenda_online.ViewHolder.ViewHolder_Nota;
@@ -126,7 +128,8 @@ public class Listar_Notas extends AppCompatActivity {
                         CD_Actualizar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(Listar_Notas.this, "Actualizar nota", Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(Listar_Notas.this, "Actualizar nota", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Listar_Notas.this, Actualizar_Nota.class)); // Ir a la actividad Actualizar nota.
                                 dialog.dismiss(); // Se cierra automaticamente el cuadro.
                             }
                         });
