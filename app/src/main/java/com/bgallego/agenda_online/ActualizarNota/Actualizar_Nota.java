@@ -3,8 +3,10 @@ package com.bgallego.agenda_online.ActualizarNota;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bgallego.agenda_online.R;
@@ -18,6 +20,8 @@ public class Actualizar_Nota extends AppCompatActivity {
     // DECLARAR LOS STRING PARA ALMACENAR LOS DATOS RECUPERADOS DE LA ACTIVIDAD LISTAR NOTA
     String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
+    ImageView Tarea_Finalizada, Tarea_No_Finalizada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,7 @@ public class Actualizar_Nota extends AppCompatActivity {
         InicializarVistas();
         RecuperarDatos();
         SetearDatos();
+        ComprobarEstadoNota();
     }
 
     private void InicializarVistas() {
@@ -38,6 +43,9 @@ public class Actualizar_Nota extends AppCompatActivity {
         Titulo_A = findViewById(R.id.Titulo_A);
         Descripcion_A = findViewById(R.id.Descripcion_A);
         Btn_Calendario_A = findViewById(R.id.Btn_Calendario_A);
+
+        Tarea_Finalizada = findViewById(R.id.Tarea_Finalizada);
+        Tarea_No_Finalizada = findViewById(R.id.Tarea_No_Finalizada);
 
     }
 
@@ -67,4 +75,20 @@ public class Actualizar_Nota extends AppCompatActivity {
         Estado_A.setText(estado_R);
 
     }
+
+    private void ComprobarEstadoNota() {
+        // Obtener el estado de la nota desde el elemento de interfaz de usuario (TextView)
+        String estado_nota = Estado_A.getText().toString();
+
+        // Comprobar si la nota está marcada como "No finalizado" y mostrar la vista correspondiente
+        if (estado_nota.equals("No finalizado")) {
+            Tarea_No_Finalizada.setVisibility(View.VISIBLE);
+        }
+
+        // Comprobar si la nota está marcada como "Finalizado" y mostrar la vista correspondiente
+        if (estado_nota.equals("Finalizado")) {
+            Tarea_Finalizada.setVisibility(View.VISIBLE);
+        }
+    }
+
 }
