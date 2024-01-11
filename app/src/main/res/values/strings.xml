@@ -72,7 +72,13 @@
     <string name="Btn_Calendario_A">Calendario</string>
     <string name="Fecha_A">00/00/0000</string>
     <string name="Estado_A">No finalizado</string>
+    <string name="Estado_nuevo"> -- </string>
 
+    <!-- SPINNER - ESTADO -->
+    <string-array name="Estados_nota">
+        <item>Finalizado</item>
+        <item>No finalizado</item>
+    </string-array>
 
 </resources>
 

@@ -4,16 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bgallego.agenda_online.R;
 
-public class Actualizar_Nota extends AppCompatActivity {
+public class Actualizar_Nota extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    TextView Id_nota_A, Uid_Usuario_A, Correo_usuario_A, Fecha_registro_A, Fecha_A, Estado_A;
+    TextView Id_nota_A, Uid_Usuario_A, Correo_usuario_A, Fecha_registro_A, Fecha_A, Estado_A, Estado_nuevo;
     EditText Titulo_A, Descripcion_A;
     Button Btn_Calendario_A;
 
@@ -21,6 +25,8 @@ public class Actualizar_Nota extends AppCompatActivity {
     String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
     ImageView Tarea_Finalizada, Tarea_No_Finalizada;
+
+    Spinner Spinner_estado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class Actualizar_Nota extends AppCompatActivity {
         RecuperarDatos();
         SetearDatos();
         ComprobarEstadoNota();
+        Spinner_Estado();
     }
 
     private void InicializarVistas() {
@@ -46,6 +53,9 @@ public class Actualizar_Nota extends AppCompatActivity {
 
         Tarea_Finalizada = findViewById(R.id.Tarea_Finalizada);
         Tarea_No_Finalizada = findViewById(R.id.Tarea_No_Finalizada);
+
+        Spinner_estado = findViewById(R.id.Spinner_estado);
+        Estado_nuevo = findViewById(R.id.Estado_nuevo);
 
     }
 
@@ -91,4 +101,53 @@ public class Actualizar_Nota extends AppCompatActivity {
         }
     }
 
+    /**
+     * Método para configurar un Spinner con opciones predefinidas de estados de nota.
+     * Utiliza un ArrayAdapter para enlazar el conjunto de datos de los estados con el Spinner.
+     */
+    private void Spinner_Estado() {
+        // Crear un ArrayAdapter a partir de un recurso de cadena de arrays que contiene los estados de nota
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.Estados_nota, android.R.layout.simple_spinner_item);
+
+        // Especificar el diseño del elemento desplegable
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Establecer el adaptador creado para el Spinner de estados
+        Spinner_estado.setAdapter(adapter);
+        Spinner_estado.setOnItemSelectedListener(this);  // Al seleccionar en un valor se debe setear en Estado_nuevo
+    }
+
+    /**
+     * Callback method invoked when an item in the AdapterView has been selected.
+     * This callback is triggered only when the newly selected position is different
+     * from the previously selected position or if there was no selected item.
+     * Implementers can use getItemAtPosition(position) to access the data associated
+     * with the selected item.
+     *
+     * @param adapterView The AdapterView where the selection occurred.
+     * @param view        The view within the AdapterView that was clicked.
+     * @param i           The position of the view in the adapter.
+     * @param l           The row ID of the item that is selected.
+     */
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        // Obtener el estado seleccionado en el AdapterView
+        String estado_seleccionado = adapterView.getItemAtPosition(i).toString();
+
+        // Establecer el estado seleccionado en un elemento de interfaz de usuario (TextView, supongamos)
+        Estado_nuevo.setText(estado_seleccionado);
+    }
+
+    /**
+     * Callback method to be invoked when the selection disappears from this
+     * view. The selection can disappear for instance when touch is activated
+     * or when the adapter becomes empty.
+     *
+     * @param parent The AdapterView that now contains no selected item.
+     */
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
