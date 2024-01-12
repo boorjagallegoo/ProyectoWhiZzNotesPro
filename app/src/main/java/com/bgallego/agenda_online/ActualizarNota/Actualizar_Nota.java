@@ -1,8 +1,12 @@
 package com.bgallego.agenda_online.ActualizarNota;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -12,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bgallego.agenda_online.R;
 
@@ -149,5 +154,42 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    /**
+     * Método de devolución de llamada para crear el menú de opciones cuando se crea la actividad.
+     * Infla el diseño del menú definido en 'menu_actualizar.xml'.
+     *
+     * @param menu El menú de opciones en el que colocas tus elementos.
+     * @return true para mostrar el menú; false para evitar que se muestre.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Obtener un objeto MenuInflater para inflar el menú desde 'menu_actualizar.xml'
+        MenuInflater menuInflater = getMenuInflater();
+
+        // Inflar el menú en el objeto Menu proporcionado como parámetro
+        menuInflater.inflate(R.menu.menu_actualizar, menu);
+
+        // Llamar al método en la superclase para realizar cualquier trabajo adicional
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * Método de devolución de llamada invocado cuando se selecciona un elemento del menú.
+     * En este caso, escucha la selección del elemento de menú 'Actualizar_Nota_BD',
+     * y muestra un mensaje Toast indicando que la nota ha sido actualizada.
+     *
+     * @param item El elemento de menú que se seleccionó.
+     * @return true para consumir el evento del menú aquí; false para permitir que la procesamiento normal del menú continúe.
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Actualizar_Nota_BD) {
+            Toast.makeText(this, "Nota actualizada", Toast.LENGTH_SHORT).show();
+        }
+
+        // Llamar al método en la superclase para realizar cualquier trabajo adicional
+        return super.onOptionsItemSelected(item);
     }
 }

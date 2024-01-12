@@ -1,6 +1,5 @@
 package com.bgallego.agenda_online.AgregarNota;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -158,7 +157,7 @@ public class Agregar_Nota extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_agenda, menu);
+        menuInflater.inflate(R.menu.menu_agregar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
