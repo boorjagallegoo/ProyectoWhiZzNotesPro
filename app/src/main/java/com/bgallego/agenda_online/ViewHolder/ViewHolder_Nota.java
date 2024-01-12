@@ -23,21 +23,8 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
      * Interfaz que define los métodos a ser implementados por los escuchadores de clics en la vista de nota.
      */
     public interface ClickListener {
-        /**
-         * Se ejecuta al hacer clic en el elemento.
-         *
-         * @param view     La vista que recibió el clic.
-         * @param position La posición del elemento en el adaptador.
-         */
-        void onItemClick(View view, int position);
-
-        /**
-         * Se ejecuta al mantener presionado el elemento.
-         *
-         * @param view     La vista que recibió el clic largo.
-         * @param position La posición del elemento en el adaptador.
-         */
-        void onItemLongClick(View view, int position);
+        void onItemClick(View view, int position); /* SE EJECUTA AL PRESIONAR EN EL ITEM */
+        void onItemLongClick(View view, int position); /* SE EJECUTA AL MANTENER PRESIONADO EL ITEM */
     }
 
     /**
@@ -58,6 +45,7 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         super(itemView);
         mView = itemView;
 
+        // Establecemos los eventos de los métodos
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
