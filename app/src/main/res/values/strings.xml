@@ -77,8 +77,8 @@
 
     <!-- SPINNER - ESTADO -->
     <string-array name="Estados_nota">
-        <item>Finalizado</item>
         <item>No finalizado</item>
+        <item>Finalizado</item>
     </string-array>
 
 </resources>

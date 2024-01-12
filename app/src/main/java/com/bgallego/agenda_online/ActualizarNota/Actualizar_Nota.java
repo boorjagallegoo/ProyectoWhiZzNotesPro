@@ -23,6 +23,12 @@ import android.widget.Toast;
 
 import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
 import com.bgallego.agenda_online.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -127,24 +133,6 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         }
     }
 
-
-    /**
-     * Método para configurar un Spinner con opciones predefinidas de estados de nota.
-     * Utiliza un ArrayAdapter para enlazar el conjunto de datos de los estados con el Spinner.
-     */
-    private void Spinner_Estado() {
-        // Crear un ArrayAdapter a partir de un recurso de cadena de arrays que contiene los estados de nota
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.Estados_nota, android.R.layout.simple_spinner_item);
-
-        // Especificar el diseño del elemento desplegable
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Establecer el adaptador creado para el Spinner de estados
-        Spinner_estado.setAdapter(adapter);
-        Spinner_estado.setOnItemSelectedListener(this);  // Al seleccionar en un valor se debe setear en Estado_nuevo
-    }
-
     private void SeleccionarFecha(){
         final Calendar calendario = Calendar.getInstance();
 
@@ -189,33 +177,71 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     }
 
     /**
-     * Callback method invoked when an item in the AdapterView has been selected.
-     * This callback is triggered only when the newly selected position is different
-     * from the previously selected position or if there was no selected item.
-     * Implementers can use getItemAtPosition(position) to access the data associated
-     * with the selected item.
-     *
-     * @param adapterView The AdapterView where the selection occurred.
-     * @param view        The view within the AdapterView that was clicked.
-     * @param i           The position of the view in the adapter.
-     * @param l           The row ID of the item that is selected.
+     * Método para configurar un Spinner con opciones predefinidas de estados de nota.
+     * Utiliza un ArrayAdapter para enlazar el conjunto de datos de los estados con el Spinner.
      */
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        // Obtener el estado seleccionado en el AdapterView
-        String estado_seleccionado = adapterView.getItemAtPosition(i).toString();
+    private void Spinner_Estado() {
+        // Crear un ArrayAdapter a partir de un recurso de cadena de arrays que contiene los estados de nota
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.Estados_nota, android.R.layout.simple_spinner_item);
 
-        // Establecer el estado seleccionado en un elemento de interfaz de usuario (TextView, supongamos)
-        Estado_nuevo.setText(estado_seleccionado);
+        // Especificar el diseño del elemento desplegable
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Establecer el adaptador creado para el Spinner de estados
+        Spinner_estado.setAdapter(adapter);
+        Spinner_estado.setOnItemSelectedListener(this);  // Al seleccionar en un valor se debe setear en Estado_nuevo
     }
 
-    /**
-     * Callback method to be invoked when the selection disappears from this
-     * view. The selection can disappear for instance when touch is activated
-     * or when the adapter becomes empty.
-     *
-     * @param parent The AdapterView that now contains no selected item.
-     */
+    private void ActualizarNotaBD() {
+        // Capturar los datos
+        String tituloActualizar = Titulo_A.getText().toString();
+        String descripcionActualizar = Descripcion_A.getText().toString();
+        String fechaActualizar = Fecha_A.getText().toString();
+        String estadoActualizar = Estado_nuevo.getText().toString();
+
+        // Llamar a Firebase
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Notas_Publicadas");
+
+        // Consulta
+        Query query = databaseReference.orderByChild("id_nota").equalTo(id_nota_R);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    ds.getRef().child("titulo").setValue(tituloActualizar);
+                    ds.getRef().child("descripcion").setValue(descripcionActualizar);
+                    ds.getRef().child("fecha_nota").setValue(fechaActualizar);
+                    ds.getRef().child("estado").setValue(estadoActualizar);
+                }
+                Toast.makeText(Actualizar_Nota.this, "Nota actualizada con éxito", Toast.LENGTH_SHORT).show();
+                onBackPressed(); // Nos dirige a la actividad anterior al actualizar la nota
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+        String ESTADO_ACTUAL = Estado_A.getText().toString();
+
+        String Posicion_1 = adapterView.getItemAtPosition(1).toString();
+
+        String estado_seleccionado = adapterView.getItemAtPosition(i).toString(); // Obtener el estado seleccionado en el AdapterView
+        Estado_nuevo.setText(estado_seleccionado); // Establecer el estado seleccionado en un elemento de interfaz de usuario (TextView, supongamos)
+
+        if (ESTADO_ACTUAL.equals("Finalizado")){
+            Estado_nuevo.setText(Posicion_1);
+        }
+
+    }
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
@@ -251,11 +277,10 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.Actualizar_Nota_BD) {
-            Toast.makeText(this, "Nota actualizada", Toast.LENGTH_SHORT).show();
+            ActualizarNotaBD();
+            // Toast.makeText(this, "Nota actualizada", Toast.LENGTH_SHORT).show();
         }
-
-        // Llamar al método en la superclase para realizar cualquier trabajo adicional
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);   // Llamar al método en la superclase para realizar cualquier trabajo adicional
     }
 
     // Acción que nos permite regresar a la actividad anterior
