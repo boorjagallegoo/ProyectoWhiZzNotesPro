@@ -1,8 +1,10 @@
 package com.bgallego.agenda_online.ActualizarNota;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,13 +14,17 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
 import com.bgallego.agenda_online.R;
+
+import java.util.Calendar;
 
 public class Actualizar_Nota extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -32,16 +38,31 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     ImageView Tarea_Finalizada, Tarea_No_Finalizada;
 
     Spinner Spinner_estado;
+    int dia, mes, anho;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualizar_nota);
+
+        // Creación de la flecha para atras (ActionBar).
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Actualizar nota");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         InicializarVistas();
         RecuperarDatos();
         SetearDatos();
         ComprobarEstadoNota();
         Spinner_Estado();
+
+        Btn_Calendario_A.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SeleccionarFecha();
+            }
+        });
     }
 
     private void InicializarVistas() {
@@ -106,6 +127,7 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         }
     }
 
+
     /**
      * Método para configurar un Spinner con opciones predefinidas de estados de nota.
      * Utiliza un ArrayAdapter para enlazar el conjunto de datos de los estados con el Spinner.
@@ -121,6 +143,49 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         // Establecer el adaptador creado para el Spinner de estados
         Spinner_estado.setAdapter(adapter);
         Spinner_estado.setOnItemSelectedListener(this);  // Al seleccionar en un valor se debe setear en Estado_nuevo
+    }
+
+    private void SeleccionarFecha(){
+        final Calendar calendario = Calendar.getInstance();
+
+        dia = calendario.get(Calendar.DAY_OF_MONTH);
+        mes = calendario.get(Calendar.MONTH);
+        anho = calendario.get(Calendar.YEAR);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Actualizar_Nota.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int AnioSeleccionado, int MesSeleccionado, int DiaSeleccionado) {
+
+                String diaFormateado, mesFormateado;
+
+                //OBTENER DIA
+                if (DiaSeleccionado < 10){
+                    diaFormateado = "0"+String.valueOf(DiaSeleccionado);
+                    // Antes: 9/11/2022 -  Ahora 09/11/2022
+                }else {
+                    diaFormateado = String.valueOf(DiaSeleccionado);
+                    //Ejemplo 13/08/2022
+                }
+
+                //OBTENER EL MES
+                int Mes = MesSeleccionado + 1;
+
+                if (Mes < 10){
+                    mesFormateado = "0"+String.valueOf(Mes);
+                    // Antes: 09/8/2022 -  Ahora 09/08/2022
+                }else {
+                    mesFormateado = String.valueOf(Mes);
+                    //Ejemplo 13/10/2022 - 13/11/2022 - 13/12/2022
+
+                }
+
+                //Setear fecha en TextView
+                Fecha_A.setText(diaFormateado + "/" + mesFormateado + "/"+ AnioSeleccionado);
+
+            }
+        }
+                ,anho,mes,dia);
+        datePickerDialog.show();
     }
 
     /**
@@ -191,5 +256,12 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
 
         // Llamar al método en la superclase para realizar cualquier trabajo adicional
         return super.onOptionsItemSelected(item);
+    }
+
+    // Acción que nos permite regresar a la actividad anterior
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

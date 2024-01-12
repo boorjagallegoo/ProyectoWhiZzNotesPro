@@ -15,6 +15,7 @@
         <!-- ID NOTA -->
         <TextView
             android:id="@+id/Id_nota_A"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab"
@@ -24,6 +25,7 @@
         <!-- UID DEL USUARIO -->
         <TextView
             android:id="@+id/Uid_Usuario_A"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab"
@@ -33,6 +35,7 @@
         <!-- CORREO DEL USUARIO -->
         <TextView
             android:id="@+id/Correo_usuario_A"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab"
@@ -42,6 +45,7 @@
         <!-- FECHA DE REGISTRO -->
         <TextView
             android:id="@+id/Fecha_registro_A"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab"
