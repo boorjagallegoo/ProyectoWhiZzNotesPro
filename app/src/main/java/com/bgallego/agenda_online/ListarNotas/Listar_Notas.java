@@ -58,25 +58,24 @@ public class Listar_Notas extends AppCompatActivity {
         }
 
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
-        recyclerviewNotas.setHasFixedSize(true);
+        recyclerviewNotas.setHasFixedSize(true); // El RV se adaptara a los cambios que pueda tener la lista.
 
+        // Obtener la instancia de FirebaseDatabase (Firebase en tiempo real).S
         firebaseDatabase = FirebaseDatabase.getInstance();
+        // Obtener una referencia a un nodo específico en la BD, en este caso "Notas_Publicadas".
         BASE_DE_DATOS = firebaseDatabase.getReference("Notas_Publicadas");
         dialog = new Dialog(Listar_Notas.this);
         ListarNotasUsuarios();
     }
 
     private void ListarNotasUsuarios() {
-        options = new FirebaseRecyclerOptions.Builder<Nota>()
-                .setQuery(BASE_DE_DATOS.orderByKey(), Nota.class)
-                .build();
-
-
+        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(BASE_DE_DATOS.orderByKey(), Nota.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Nota, ViewHolder_Nota>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolder_nota, int position, @NonNull Nota nota) {
+                // Imprime en la consola el contenido de la nota para propósitos de depuración.
                 Log.d("Notas", "Contenido de la nota: " + nota.toString());
-
+                // Establece los datos de la nota en la vista correspondiente.
                 viewHolder_nota.SetearDatos(
                         getApplicationContext(),
                         nota.getId_nota(),
@@ -90,15 +89,17 @@ public class Listar_Notas extends AppCompatActivity {
                 );
             }
 
-            @NonNull
             @Override
             public ViewHolder_Nota onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                // Inflar la vista del elemento de la lista desde el diseño definido en R.layout.item_nota
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nota, parent, false);
+                // Crear una instancia de ViewHolder_Nota, que representa y almacena las vistas dentro del elemento de la lista
                 ViewHolder_Nota viewHolder_nota = new ViewHolder_Nota(view);
+
                 viewHolder_nota.setOnClickListener(new ViewHolder_Nota.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Notas.this, "on item click", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Listar_Notas.this, "Click en la nota", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -159,11 +160,12 @@ public class Listar_Notas extends AppCompatActivity {
         };
 
         linearLayoutManager = new LinearLayoutManager(Listar_Notas.this, LinearLayoutManager.VERTICAL, false);
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
+        linearLayoutManager.setReverseLayout(true); // Listar desde el último registro al primero.
+        linearLayoutManager.setStackFromEnd(true); // Al momento de listar empiece por la parte superior.
 
         recyclerviewNotas.setLayoutManager(linearLayoutManager);
         recyclerviewNotas.setAdapter(firebaseRecyclerAdapter);
+
     }
 
     /**
@@ -223,7 +225,7 @@ public class Listar_Notas extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (firebaseRecyclerAdapter != null) {
-            firebaseRecyclerAdapter.startListening();
+            firebaseRecyclerAdapter.startListening(); // Va ver si las notas son leídas correctamente.
         }
     }
 
