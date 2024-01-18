@@ -24,6 +24,8 @@ import com.bgallego.agenda_online.R;
 import com.bgallego.agenda_online.ViewHolder.ViewHolder_Nota;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +46,9 @@ public class Listar_Notas extends AppCompatActivity {
 
     Dialog dialog;
 
+    FirebaseAuth auth;
+    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,9 @@ public class Listar_Notas extends AppCompatActivity {
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerviewNotas.setHasFixedSize(true); // El RV se adaptara a los cambios que pueda tener la lista.
 
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser(); // Obtenemos al usuario que inicio sesión actualmente.
+
         // Obtener la instancia de FirebaseDatabase (Firebase en tiempo real).
         firebaseDatabase = FirebaseDatabase.getInstance();
         // Obtener una referencia a un nodo específico en la BD, en este caso "Notas_Publicadas".
@@ -69,7 +77,9 @@ public class Listar_Notas extends AppCompatActivity {
     }
 
     private void ListarNotasUsuarios() {
-        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(BASE_DE_DATOS.orderByKey(), Nota.class).build();
+        // Consulta
+        Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(query, Nota.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Nota, ViewHolder_Nota>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolder_nota, int position, @NonNull Nota nota) {
