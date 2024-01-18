@@ -42,7 +42,7 @@ public class Agregar_Nota extends AppCompatActivity {
 
         // Creación de la flecha para atras (ActionBar).
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("");
+        actionBar.setTitle("Agregar nota");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 

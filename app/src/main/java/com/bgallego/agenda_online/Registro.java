@@ -43,7 +43,7 @@ public class Registro extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle("Registrar");
+            actionBar.setTitle("Registro");
             // Flecha hacia atras
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
@@ -118,7 +118,7 @@ public class Registro extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(Registro.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registro.this, "Nombre de usuario ya en uso", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

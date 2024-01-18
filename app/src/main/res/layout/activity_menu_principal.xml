@@ -203,13 +203,13 @@
                         android:src="@drawable/perfil" />
 
                     <Button
-                        android:id="@+id/Perfil"
+                        android:id="@+id/Contactos"
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/robotoslab"
-                        android:text="@string/Perfil" />
+                        android:text="@string/Contactos" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>

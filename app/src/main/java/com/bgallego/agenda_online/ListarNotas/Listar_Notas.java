@@ -60,7 +60,7 @@ public class Listar_Notas extends AppCompatActivity {
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerviewNotas.setHasFixedSize(true); // El RV se adaptara a los cambios que pueda tener la lista.
 
-        // Obtener la instancia de FirebaseDatabase (Firebase en tiempo real).S
+        // Obtener la instancia de FirebaseDatabase (Firebase en tiempo real).
         firebaseDatabase = FirebaseDatabase.getInstance();
         // Obtener una referencia a un nodo específico en la BD, en este caso "Notas_Publicadas".
         BASE_DE_DATOS = firebaseDatabase.getReference("Notas_Publicadas");

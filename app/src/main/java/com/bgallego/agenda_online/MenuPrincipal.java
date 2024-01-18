@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    Button AgregarNotas, ListarNotas, Archivados, Perfil, AcercaDe, CerrarSesion;
+    Button AgregarNotas, ListarNotas, Archivados, Contactos, AcercaDe, CerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
@@ -42,7 +42,7 @@ public class MenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Agenda Personal");
+        actionBar.setTitle("WhiZzNotes Pro");
 
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
@@ -54,7 +54,7 @@ public class MenuPrincipal extends AppCompatActivity {
         AgregarNotas = findViewById(R.id.AgregarNotas);
         ListarNotas = findViewById(R.id.ListarNotas);
         Archivados = findViewById(R.id.Archivados);
-        Perfil = findViewById(R.id.Perfil);
+        Contactos = findViewById(R.id.Contactos);
         AcercaDe = findViewById(R.id.AcercaDe);
         CerrarSesion = findViewById(R.id.CerrarSesion);
 
@@ -94,7 +94,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        Perfil.setOnClickListener(new View.OnClickListener() {
+        Contactos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
@@ -172,7 +172,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     AgregarNotas.setEnabled(true);
                     ListarNotas.setEnabled(true);
                     Archivados.setEnabled(true);
-                    Perfil.setEnabled(true);
+                    Contactos.setEnabled(true);
                     AcercaDe.setEnabled(true);
                     CerrarSesion.setEnabled(true);
                 }
