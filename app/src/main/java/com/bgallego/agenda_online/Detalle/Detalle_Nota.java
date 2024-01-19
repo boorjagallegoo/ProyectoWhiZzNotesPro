@@ -2,26 +2,28 @@ package com.bgallego.agenda_online.Detalle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
-
 import com.bgallego.agenda_online.R;
 
+/**
+ * Actividad que muestra los detalles de una nota.
+ */
 public class Detalle_Nota extends AppCompatActivity {
 
+    // Vistas para mostrar los detalles de la nota.
     TextView Id_nota_Detalle, Uid_usuario_Detalle, Correo_usuario_Detalle, Titulo_Detalle, Descripcion_Detalle,
             Fecha_Registro_Detalle, Fecha_Nota_Detalle, Estado_Detalle;
 
-    // DECLARAR LOS STRING PARA ALMACENAR LOS DATOS RECUPERADOS DE LA ACTIVIDAD LISTAR NOTA
-    String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
+    // Variables para almacenar los datos recuperados de la actividad Listar Nota.
+    String id_nota_R, uid_usuario_R, correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_nota);
 
-        // Creación de la flecha para atras (ActionBar).
+        // Configuración de la flecha para retroceder en la ActionBar.
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setTitle("Detalles nota");
@@ -31,10 +33,12 @@ public class Detalle_Nota extends AppCompatActivity {
         InicializarVistas();
         RecuperarDatos();
         SetearDatosRecuperados();
-
     }
 
-    private void InicializarVistas(){
+    /**
+     * Inicializa las vistas utilizadas en la actividad.
+     */
+    private void InicializarVistas() {
         Id_nota_Detalle = findViewById(R.id.Id_nota_Detalle);
         Uid_usuario_Detalle = findViewById(R.id.Uid_usuario_Detalle);
         Correo_usuario_Detalle = findViewById(R.id.Correo_usuario_Detalle);
@@ -45,6 +49,9 @@ public class Detalle_Nota extends AppCompatActivity {
         Estado_Detalle = findViewById(R.id.Estado_Detalle);
     }
 
+    /**
+     * Recupera los datos enviados desde la actividad Listar Nota.
+     */
     private void RecuperarDatos() {
         Bundle intent = getIntent().getExtras();
         // Almacenamos los datos recuperados del intent, key = intent.putExtra de CD_Actualizar
@@ -58,7 +65,10 @@ public class Detalle_Nota extends AppCompatActivity {
         estado_R = intent.getString("estado");
     }
 
-    private void SetearDatosRecuperados(){
+    /**
+     * Configura las vistas con los datos recuperados.
+     */
+    private void SetearDatosRecuperados() {
         Id_nota_Detalle.setText(id_nota_R);
         Uid_usuario_Detalle.setText(uid_usuario_R);
         Correo_usuario_Detalle.setText(correo_usuario_R);
@@ -69,7 +79,11 @@ public class Detalle_Nota extends AppCompatActivity {
         Estado_Detalle.setText(estado_R);
     }
 
-    // Acción que nos permite regresar a la actividad anterior
+    /**
+     * Acción que permite regresar a la actividad anterior.
+     *
+     * @return true si la acción se ha completado correctamente.
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
