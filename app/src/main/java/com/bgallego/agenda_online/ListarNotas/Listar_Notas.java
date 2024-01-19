@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bgallego.agenda_online.ActualizarNota.Actualizar_Nota;
+import com.bgallego.agenda_online.Detalle.Detalle_Nota;
 import com.bgallego.agenda_online.Objetos.Nota;
 import com.bgallego.agenda_online.R;
 import com.bgallego.agenda_online.ViewHolder.ViewHolder_Nota;
@@ -109,7 +110,8 @@ public class Listar_Notas extends AppCompatActivity {
                 viewHolder_nota.setOnClickListener(new ViewHolder_Nota.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Notas.this, "Click en la nota", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(Listar_Notas.this, "Click en la nota", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Listar_Notas.this, Detalle_Nota.class));
                     }
 
                     @Override

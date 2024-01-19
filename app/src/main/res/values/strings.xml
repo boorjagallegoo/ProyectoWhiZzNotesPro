@@ -82,6 +82,24 @@
         <item>Finalizado</item>
     </string-array>
 
+    <!--DETALLE NOTA-->
+    <string name="Id_nota_Detalle_TXT">Id de la nota: </string>
+    <string name="Id_nota_Detalle">Id nota</string>
+    <string name="Uid_usuario_Detalle_TXT">Uid de usuario: </string>
+    <string name="Uid_usuario_Detalle">Uid usuario</string>
+    <string name="Correo_usuario_Detalle_TXT">Correo de usuario: </string>
+    <string name="Correo_usuario_Detalle">Correo usuario</string>
+    <string name="Titulo_Detalle_TXT">Título: </string>
+    <string name="Titulo_Detalle">Título</string>
+    <string name="Descripcion_Detalle_TXT">Descripción: </string>
+    <string name="Descripcion_Detalle">Descripcion</string>
+    <string name="Fecha_registro_Detalle_TXT">Fecha de registro: </string>
+    <string name="Fecha_Registro_Detalle">Fecha registro</string>
+    <string name="Fecha_Nota_Detalle_TXT">Fecha nota: </string>
+    <string name="Fecha_Nota_Detalle">Fecha nota</string>
+    <string name="Estado_Detalle_TXT">Estado de la nota: </string>
+    <string name="Estado_Detalle">Estado</string>
+
 </resources>
 
 
