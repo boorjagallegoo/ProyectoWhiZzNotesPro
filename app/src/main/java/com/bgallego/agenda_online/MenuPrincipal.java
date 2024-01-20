@@ -32,9 +32,10 @@ public class MenuPrincipal extends AppCompatActivity {
     FirebaseUser user;
 
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
+    Button EstadoCuentaPrincipal;
     ProgressBar progressBarDatos;
 
-    LinearLayoutCompat Linear_Nombres, Linear_Correo;
+    LinearLayoutCompat Linear_Nombres, Linear_Correo, Linear_Verificacion;
 
     // Llamamos a nuestra Base de datos (Usuarios).
     DatabaseReference Usuarios;
@@ -50,10 +51,12 @@ public class MenuPrincipal extends AppCompatActivity {
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
+        EstadoCuentaPrincipal = findViewById(R.id.EstadoCuentaPrincipal);
         progressBarDatos = findViewById(R.id.progressBarDatos);
 
         Linear_Nombres = findViewById(R.id.Linear_Nombres);
         Linear_Correo = findViewById(R.id.Linear_Correo);
+        Linear_Verificacion = findViewById(R.id.Linear_Verificacion);
 
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
@@ -166,6 +169,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     // CorreoPrincipal.setVisibility(View.VISIBLE);
                     Linear_Nombres.setVisibility(View.VISIBLE);
                     Linear_Correo.setVisibility(View.VISIBLE);
+                    Linear_Verificacion.setVisibility(View.VISIBLE);
 
                     // Obtener los datos
                     String uid = "" + snapshot.child("uid").getValue();

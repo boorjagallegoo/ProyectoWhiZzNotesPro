@@ -15,330 +15,359 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="180dp"
             android:padding="0.2dp"
             app:cardBackgroundColor="@color/colorPrimaryLight"
             app:cardCornerRadius="5dp"
             app:cardUseCompatPadding="true">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="2dp"
-                android:layout_weight="1"
-                android:src="@drawable/imagen_perfil" />
-
-            <!-- DATOS -->
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:orientation="horizontal"
+                android:weightSum="4">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab"
-                    android:text="@string/BienvenidoPrincipal"
-                    android:textColor="#ffff"
-                    android:textSize="20sp" />
-
-                <ProgressBar
-                    android:id="@+id/progressBarDatos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="18dp" />
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/imagen_perfil" />
 
-                <!-- UID -->
-                <TextView
-                    android:id="@+id/UidPrincipal"
+                <!-- DATOS USUARIO CONECTADO -->
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoslab"
-                    android:text="@string/UidPrincipal"
-                    android:textColor="#ffff"
-                    android:textSize="15sp"
-                    android:visibility="gone" />
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <!-- NOMBRE -->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/Linear_Nombres"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/BienvenidoPrincipal"
+                        android:textColor="#ffff"
+                        android:textSize="20sp" />
 
-                    <!-- ICONO -->
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="20dp"
+                    <ProgressBar
+                        android:id="@+id/progressBarDatos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="20dp"
-                        android:src="@drawable/nombre_menu" />
+                        android:layout_marginTop="18dp" />
+
+                    <!-- UID -->
+                    <TextView
+                        android:id="@+id/UidPrincipal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/UidPrincipal"
+                        android:textColor="#ffff"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
 
                     <!-- NOMBRE -->
-                    <TextView
-                        android:id="@+id/NombresPrincipal"
-                        android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/Linear_Nombres"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/robotoslab"
-                        android:layout_marginStart="3dp"
-                        android:text="@string/NombresPrincipal"
-                        android:textColor="#ffff"
-                        android:textSize="17sp" />
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                        <!-- ICONO -->
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/nombre_menu" />
 
-                <!-- CORREO -->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/Linear_Correo"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        <!-- NOMBRE -->
+                        <TextView
+                            android:id="@+id/NombresPrincipal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:fontFamily="@font/robotoslab"
+                            android:text="@string/NombresPrincipal"
+                            android:textColor="#ffff"
+                            android:textSize="17sp" />
 
-                    <!-- ICONO -->
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/correo_menu" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <!-- CORREO -->
-                    <TextView
-                        android:id="@+id/CorreoPrincipal"
-                        android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/Linear_Correo"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/robotoslab"
-                        android:text="@string/CorreoPrincipal"
-                        android:textColor="#ffff"
-                        android:textSize="17sp"
-                        android:layout_marginStart="3dp"/>
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <!-- ICONO -->
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/correo_menu" />
+
+                        <!-- CORREO -->
+                        <TextView
+                            android:id="@+id/CorreoPrincipal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:fontFamily="@font/robotoslab"
+                            android:text="@string/CorreoPrincipal"
+                            android:textColor="#ffff"
+                            android:textSize="17sp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <!-- VERIFICACIÓN -->
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/Linear_Verificacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <!-- ICONO -->
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/verificacion_principal" />
+
+                        <!-- ESTADO CUENTA -->
+                        <Button
+                            android:id="@+id/EstadoCuentaPrincipal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#607d8b"
+                            android:layout_marginStart="3dp"
+                            android:fontFamily="@font/robotoslab"
+                            android:text="@string/EstadoCuentaPrincipal"
+                            android:textColor="#ffff"
+                            android:textSize="17sp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
+        </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>
-
-    <!-- 1 y 2 -->
-<androidx.appcompat.widget.LinearLayoutCompat
-android:layout_height="wrap_content"
-android:layout_width="match_parent"
-android:orientation="vertical">
-
-<androidx.appcompat.widget.LinearLayoutCompat
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="2">
-
-    <!--OPCIÓN 1 AgregarNotas -->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="70dp"
-            android:layout_width="70dp"
-            android:src="@drawable/agregar" />
-
-        <Button
-            android:enabled="false"
-            android:fontFamily="@font/robotoslab"
-            android:id="@+id/AgregarNotas"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+        <!-- 1 y 2 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:text="@string/AgregarNotas" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <!--OPCIÓN 2 ListaNotas -->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="70dp"
-            android:layout_width="70dp"
-            android:src="@drawable/lista" />
-
-        <Button
-            android:enabled="false"
-            android:fontFamily="@font/robotoslab"
-            android:id="@+id/ListarNotas"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!--OPCIÓN 1 AgregarNotas -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/agregar" />
+
+                    <Button
+                        android:id="@+id/AgregarNotas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/AgregarNotas" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--OPCIÓN 2 ListaNotas -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/lista" />
+
+                    <Button
+                        android:id="@+id/ListarNotas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/ListarNotas" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- 3 y 4 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:text="@string/ListarNotas" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
-
-    <!-- 3 y 4 -->
-<androidx.appcompat.widget.LinearLayoutCompat
-android:layout_height="wrap_content"
-android:layout_width="match_parent"
-android:orientation="vertical">
-
-<androidx.appcompat.widget.LinearLayoutCompat
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="2">
-
-    <!--OPCIÓN 3 Archivados -->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="70dp"
-            android:layout_width="70dp"
-            android:src="@drawable/archivados" />
-
-        <Button
-            android:enabled="false"
-            android:fontFamily="@font/robotoslab"
-            android:id="@+id/Archivados"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!--OPCIÓN 3 Archivados -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/archivados" />
+
+                    <Button
+                        android:id="@+id/Archivados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/Archivados" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!--OPCIÓN 4 Perfil -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/perfil" />
+
+                    <Button
+                        android:id="@+id/Contactos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/Contactos" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- 5 y 6 -->
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:text="@string/Archivados" />
-
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <!--OPCIÓN 4 Perfil -->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="70dp"
-            android:layout_width="70dp"
-            android:src="@drawable/perfil" />
-
-        <Button
-            android:enabled="false"
-            android:fontFamily="@font/robotoslab"
-            android:id="@+id/Contactos"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:text="@string/Contactos" />
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!--OPCIÓN 5 AcercaDe -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/acerca_de" />
+
+                    <Button
+                        android:id="@+id/AcercaDe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/AcercaDe" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+                <!--OPCIÓN 6 CerrarSesion -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/salir" />
 
-    <!-- 5 y 6 -->
-<androidx.appcompat.widget.LinearLayoutCompat
-android:layout_height="wrap_content"
-android:layout_width="match_parent"
-android:orientation="vertical">
-
-<androidx.appcompat.widget.LinearLayoutCompat
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="2">
-
-    <!--OPCIÓN 5 AcercaDe -->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="70dp"
-            android:layout_width="70dp"
-            android:src="@drawable/acerca_de" />
-
-        <Button
-            android:enabled="false"
-            android:fontFamily="@font/robotoslab"
-            android:id="@+id/AcercaDe"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:text="@string/AcercaDe" />
+                    <Button
+                        android:id="@+id/CerrarSesion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:fontFamily="@font/robotoslab"
+                        android:text="@string/CerrarSesion" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <!--OPCIÓN 6 CerrarSesion -->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:orientation="vertical">
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_height="70dp"
-            android:layout_width="70dp"
-            android:src="@drawable/salir" />
-
-        <Button
-            android:enabled="false"
-            android:fontFamily="@font/robotoslab"
-            android:id="@+id/CerrarSesion"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:text="@string/CerrarSesion" />
-
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </ScrollView>
+</ScrollView>
