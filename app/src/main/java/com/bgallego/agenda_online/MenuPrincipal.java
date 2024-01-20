@@ -1,5 +1,7 @@
 package com.bgallego.agenda_online;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -17,6 +20,8 @@ import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
 import com.bgallego.agenda_online.ListarNotas.Listar_Notas;
 import com.bgallego.agenda_online.NotasArchivadas.Notas_Archivadas;
 import com.bgallego.agenda_online.Perfil.Perfil_Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +39,7 @@ public class MenuPrincipal extends AppCompatActivity {
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
     Button EstadoCuentaPrincipal;
     ProgressBar progressBarDatos;
+    ProgressDialog progressDialog;
 
     LinearLayoutCompat Linear_Nombres, Linear_Correo, Linear_Verificacion;
 
@@ -54,6 +60,10 @@ public class MenuPrincipal extends AppCompatActivity {
         EstadoCuentaPrincipal = findViewById(R.id.EstadoCuentaPrincipal);
         progressBarDatos = findViewById(R.id.progressBarDatos);
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Espere por favor ...");
+        progressDialog.setCanceledOnTouchOutside(false);
+
         Linear_Nombres = findViewById(R.id.Linear_Nombres);
         Linear_Correo = findViewById(R.id.Linear_Correo);
         Linear_Verificacion = findViewById(R.id.Linear_Verificacion);
@@ -70,6 +80,20 @@ public class MenuPrincipal extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        // Evento para el botón Verificar Usuario.
+        EstadoCuentaPrincipal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user.isEmailVerified()) {
+                    // Si la cuenta está verificada
+                    Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT);
+                } else {
+                    // Si la cuenta no está verificada
+                    VerificarCuentaCorreo();
+                }
+            }
+        });
 
         // Inicio de la Activitys
         AgregarNotas.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +152,69 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     /**
+     * Método que muestra un cuadro de diálogo para confirmar el envío de instrucciones de verificación al correo electrónico del usuario.
+     * @distinctiveSection Verificar usuario por correo electrónico
+     */
+    private void VerificarCuentaCorreo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Verificar cuenta")
+                .setMessage("¿Estás seguro(a) de enviar instrucciones de verificación a su correo electrónico? " + user.getEmail())
+                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        EnviarCorreoAVerificacion();
+                    }
+                }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        // Agregar el método show() para mostrar el Toast
+                        Toast.makeText(MenuPrincipal.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
+    }
+
+    /**
+     * Método que envía instrucciones de verificación al correo electrónico del usuario y muestra mensajes de éxito o error.
+     * @distinctiveSection Verificar usuario por correo electrónico
+     */
+    private void EnviarCorreoAVerificacion() {
+        progressDialog.setMessage("Enviando instrucciones de verificación a su correo electrónico " + user.getEmail());
+        progressDialog.show();
+
+        user.sendEmailVerification()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // El envío fue exitoso
+                        progressDialog.dismiss();
+                        Toast.makeText(MenuPrincipal.this, "Instrucciones enviadas, revise su bandeja de correo " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Falló el envío
+                        Toast.makeText(MenuPrincipal.this, "Falló debido a: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    /**
+     * Método que verifica el estado de la cuenta del usuario y actualiza la interfaz de usuario en consecuencia.
+     * @distinctiveSection Verificar usuario por correo electrónico
+     */
+    private void VerificarEstadoCuenta() {
+        String Verificado = "Verificado";
+        String No_Verificado = "No Verificado";
+        if (user.isEmailVerified()) {
+            EstadoCuentaPrincipal.setText(Verificado);
+        } else {
+            EstadoCuentaPrincipal.setText(No_Verificado);
+        }
+    }
+
+
+    /**
      * Método que se llama cuando la actividad está a punto de hacerse visible para el usuario.
      * Realiza la comprobación de inicio de sesión y ejecuta las acciones correspondientes.
      */
@@ -156,6 +243,8 @@ public class MenuPrincipal extends AppCompatActivity {
      * Carga los datos del usuario desde la base de datos y actualiza la interfaz de usuario.
      */
     private void CargaDeDatos() {
+
+        VerificarEstadoCuenta();
         Usuarios.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
