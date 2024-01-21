@@ -1,6 +1,5 @@
 package com.bgallego.agenda_online.AgregarNota;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
