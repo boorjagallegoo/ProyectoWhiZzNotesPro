@@ -65,6 +65,10 @@
     <string name="CD_Eliminar">Eliminar</string>
     <string name="CD_Actualizar">Actualizar</string>
 
+    <!--CUADRO DE DIÁLOGO - CUENTA VERIFICADA-->
+    <string name="CuentaVerificadaTXT">Cuenta verificada</string>
+    <string name="EntendidoVerificado">Entendido</string>
+
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">Id nota</string>
     <string name="Uid_Usuario_A">Uid del usuario</string>

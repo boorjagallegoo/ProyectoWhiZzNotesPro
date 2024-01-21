@@ -1,5 +1,6 @@
 package com.bgallego.agenda_online;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,11 +42,11 @@ public class MenuPrincipal extends AppCompatActivity {
     Button EstadoCuentaPrincipal;
     ProgressBar progressBarDatos;
     ProgressDialog progressDialog;
-
     LinearLayoutCompat Linear_Nombres, Linear_Correo, Linear_Verificacion;
 
-    // Llamamos a nuestra Base de datos (Usuarios).
-    DatabaseReference Usuarios;
+    DatabaseReference Usuarios; // Llamamos a nuestra Base de datos (Usuarios).
+
+    Dialog dialog_cuenta_verificada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,8 @@ public class MenuPrincipal extends AppCompatActivity {
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
         EstadoCuentaPrincipal = findViewById(R.id.EstadoCuentaPrincipal);
         progressBarDatos = findViewById(R.id.progressBarDatos);
+
+        dialog_cuenta_verificada = new Dialog(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Espere por favor ...");
@@ -88,7 +91,8 @@ public class MenuPrincipal extends AppCompatActivity {
             public void onClick(View v) {
                 if (user.isEmailVerified()) {
                     // Si la cuenta está verificada
-                    Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT);
+                    // Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT);
+                    AnimacionCuentaVerificada();
                 } else {
                     // Si la cuenta no está verificada
                     VerificarCuentaCorreo();
@@ -214,6 +218,23 @@ public class MenuPrincipal extends AppCompatActivity {
             EstadoCuentaPrincipal.setText(No_Verificado);
             EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231,76,60));
         }
+    }
+
+    private void AnimacionCuentaVerificada() {
+        Button EntendidoVerificado;
+
+        dialog_cuenta_verificada.setContentView(R.layout.dialogo_cuenta_verificada);
+
+        EntendidoVerificado = dialog_cuenta_verificada.findViewById(R.id.EntendidoVerificado);
+
+        EntendidoVerificado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_cuenta_verificada.dismiss();
+            }
+        });
+        dialog_cuenta_verificada.show();
+        dialog_cuenta_verificada.setCanceledOnTouchOutside(false);
     }
 
 
