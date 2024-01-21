@@ -3,6 +3,7 @@ package com.bgallego.agenda_online;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -208,8 +209,10 @@ public class MenuPrincipal extends AppCompatActivity {
         String No_Verificado = "No Verificado";
         if (user.isEmailVerified()) {
             EstadoCuentaPrincipal.setText(Verificado);
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(41,128,185));
         } else {
             EstadoCuentaPrincipal.setText(No_Verificado);
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231,76,60));
         }
     }
 

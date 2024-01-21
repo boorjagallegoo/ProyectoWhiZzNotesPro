@@ -45,6 +45,7 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation ("com.google.firebase:firebase-analytics:21.5.0")
     testImplementation("junit:junit:4.13.2")
+    testImplementation ("org.robolectric:robolectric:4.6.1") // Proporciona una simulación del entorno Android, permitiendo la ejecución de pruebas de unidades de manera aislada.
     implementation ("com.google.android.material:material:1.11.0")
     implementation("com.google.firebase:firebase-auth:22.3.0") /*AUTENTICACIÓN DE FIREBASE*/
     implementation("com.google.firebase:firebase-database:20.3.0") /*BASE DE DATOS DE FIREBASE*/

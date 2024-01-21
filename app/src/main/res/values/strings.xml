@@ -33,7 +33,7 @@
     <string name="Archivados">Archivados</string>
     <string name="Contactos">Contactos</string>
     <string name="AcercaDe">Acerca De</string>
-    <string name="CerrarSesion">Salir</string>
+    <string name="CerrarSesion">Cerrar sesión</string>
 
     <!-- AGREGAR NOTA -->
     <string name="Uid_Usuario">Uid del usuario</string>

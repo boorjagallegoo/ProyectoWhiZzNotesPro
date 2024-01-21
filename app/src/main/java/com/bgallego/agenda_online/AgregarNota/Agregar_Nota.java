@@ -1,5 +1,6 @@
 package com.bgallego.agenda_online.AgregarNota;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -110,7 +111,7 @@ public class Agregar_Nota extends AppCompatActivity {
         Fecha_hora_actual.setText(Fecha_hora_registro);
     }
 
-    private void Agregar_Nota() {
+    public void AgregarNota() { // Lo cambiamos de private a public para el test
 
         // Obtener los datos
         String uid_usuario = Uid_Usuario.getText().toString();
@@ -170,7 +171,7 @@ public class Agregar_Nota extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.Agregar_Nota_BD) {
-            Agregar_Nota();
+            AgregarNota();
         }
         return super.onOptionsItemSelected(item);
     }
