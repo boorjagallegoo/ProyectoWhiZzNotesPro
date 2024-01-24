@@ -213,7 +213,7 @@ public class MenuPrincipal extends AppCompatActivity {
         String No_Verificado = "No Verificado";
         if (user.isEmailVerified()) {
             EstadoCuentaPrincipal.setText(Verificado);
-            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(41,128,185));
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(114,220,41));
         } else {
             EstadoCuentaPrincipal.setText(No_Verificado);
             EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231,76,60));

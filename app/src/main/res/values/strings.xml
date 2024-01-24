@@ -11,15 +11,17 @@
     <string name="CorreoEt">Correo electrónico</string>
     <string name="ContraseñaEt">Contraseña</string>
     <string name="ConfirmarContraseñaEt">Confirmar contraseña</string>
-    <string name="RegistrarUsuario">Registrar</string>
-    <string name="TengoUnaCuentaTXT">Tengo una cuenta </string>
+    <string name="RegistrarUsuario">Siguiente</string>
+    <string name="TengoUnaCuentaTXTuno">¿Tienes una cuenta?</string>
+    <string name="TengoUnaCuentaTXT">Entrar</string>
 
     <!-- ACTIVITY LOGIN -->
     <string name="IniciarSesionTXT">Iniciar sesión</string>
     <string name="CorreoLogin">Correo</string>
     <string name="PassLogin">Contraseña</string>
     <string name="Btn_Logeo">Ingresar</string>
-    <string name="UsuarioNuevoTXT">¿No tienes una cuenta?. Regístrate</string>
+    <string name="UsuarioNuevoTXTuno">¿No tienes una cuenta?</string>
+    <string name="UsuarioNuevoTXT">Regístrate</string>
 
     <!-- MENÚ PRINCIPAL -->
     <string name="BienvenidoPrincipal">Bienvenido(a)</string>
@@ -68,6 +70,8 @@
     <!--CUADRO DE DIÁLOGO - CUENTA VERIFICADA-->
     <string name="CuentaVerificadaTXT">Cuenta verificada</string>
     <string name="EntendidoVerificado">Entendido</string>
+    <string name="Verificado">Verificado </string>
+    <string name="No_Verificado">No Verificado</string>
 
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">Id nota</string>
