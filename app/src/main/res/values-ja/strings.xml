@@ -1,0 +1,112 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">WhiZzNotes Pro</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="Btn_Login">ログイン</string>
+    <string name="Btn_Registro">登録</string>
+
+    <!-- ACTIVITY REGISTRO -->
+    <string name="CrearCuentaTXT">アカウントを作成する</string>
+    <string name="NombreEt">名前</string>
+    <string name="CorreoEt">メールアドレス</string>
+    <string name="ContraseñaEt">パスワード</string>
+    <string name="ConfirmarContraseñaEt">パスワードの確認</string>
+    <string name="RegistrarUsuario">次へ</string>
+    <string name="TengoUnaCuentaTXTuno">アカウントをお持ちですか？</string>
+    <string name="TengoUnaCuentaTXT">ログイン</string>
+
+    <!-- ACTIVITY LOGIN -->
+    <string name="IniciarSesionTXT">ログイン</string>
+    <string name="CorreoLogin">メール</string>
+    <string name="PassLogin">パスワード</string>
+    <string name="Btn_Logeo">ログイン</string>
+    <string name="UsuarioNuevoTXTuno">アカウントをお持ちでないですか？</string>
+    <string name="UsuarioNuevoTXT">登録</string>
+
+    <!-- MENÚ PRINCIPAL -->
+    <string name="BienvenidoPrincipal">ようこそ</string>
+    <string name="UidPrincipal"> -- </string>
+    <string name="NombresPrincipal"> -- </string>
+    <string name="CorreoPrincipal"> -- </string>
+    <string name="EstadoCuentaPrincipal">未確認</string>
+
+    <string name="AgregarNotas">追加</string>
+    <string name="ListarNotas">私のメモ</string>
+    <string name="Archivados">アーカイブ済み</string>
+    <string name="Contactos">連絡先</string>
+    <string name="AcercaDe">について</string>
+    <string name="CerrarSesion">ログアウト</string>
+
+    <!-- AGREGAR NOTA -->
+    <string name="Uid_Usuario">ユーザーID</string>
+    <string name="Correo_usuario">ユーザーのメール</string>
+    <string name="Fecha_hora_actual_TXT">登録日時</string>
+    <string name="Fecha_hora_actual">現在の日時</string>
+    <string name="Titulo">タイトル</string>
+    <string name="Descripcion">説明</string>
+    <string name="Btn_Calendario">カレンダー</string>
+    <string name="Fecha">00/00/0000</string>
+    <string name="Estado">未完了</string>
+
+    <!-- MENÚ -->
+    <string name="Agregar_Nota_BD">追加</string>
+    <string name="Actualizar_Nota_BD">更新</string>
+
+    <!-- ITEM NOTA -->
+    <string name="Id_nota_Item">メモID</string>
+    <string name="Uid_Usuario_Item">ユーザーID</string>
+    <string name="Correo_usuario_Item">ユーザーのメール</string>
+    <string name="Fecha_hora_registro_Item">登録日時</string>
+    <string name="Titulo_Item">タイトル</string>
+    <string name="Descripcion_Item">説明</string>
+    <string name="Fecha_Item">00/00/0000</string>
+    <string name="Estado_Item">未完了</string>
+
+    <!-- OPTIONS DIALOG BOX -->
+    <string name="ElijaOpcionTXT">オプションを選択</string>
+    <string name="CD_Eliminar">削除</string>
+    <string name="CD_Actualizar">更新</string>
+
+    <!-- VERIFIED ACCOUNT DIALOG BOX -->
+    <string name="CuentaVerificadaTXT">アカウントが確認されました</string>
+    <string name="EntendidoVerificado">了解しました</string>
+    <string name="Verificado">確認済み</string>
+    <string name="No_Verificado">未確認</string>
+
+    <!-- ACTUALIZAR NOTA -->
+    <string name="Id_nota_A">メモID</string>
+    <string name="Uid_Usuario_A">ユーザーID</string>
+    <string name="Correo_usuario_A">ユーザーのメール</string>
+    <string name="Fecha_registro_A">登録日時</string>
+    <string name="Titulo_A">タイトル</string>
+    <string name="Descripcion_A">説明</string>
+    <string name="Btn_Calendario_A">カレンダー</string>
+    <string name="Fecha_A">00/00/0000</string>
+    <string name="Estado_A">未完了</string>
+    <string name="Estado_nuevo"> -- </string>
+
+    <!-- SPINNER - STATUS -->
+    <string-array name="Estados_nota">
+        <item>未完了</item>
+        <item>完了</item>
+    </string-array>
+
+    <!-- NOTE DETAILS -->
+    <string name="Id_nota_Detalle_TXT">メモID: </string>
+    <string name="Id_nota_Detalle">メモID</string>
+    <string name="Uid_usuario_Detalle_TXT">ユーザーID: </string>
+    <string name="Uid_usuario_Detalle">ユーザーID</string>
+    <string name="Correo_usuario_Detalle_TXT">ユーザーのメール: </string>
+    <string name="Correo_usuario_Detalle">ユーザーのメール</string>
+    <string name="Titulo_Detalle_TXT">タイトル: </string>
+    <string name="Titulo_Detalle">タイトル</string>
+    <string name="Descripcion_Detalle_TXT">説明: </string>
+    <string name="Descripcion_Detalle">説明</string>
+    <string name="Fecha_registro_Detalle_TXT">登録日時: </string>
+    <string name="Fecha_Registro_Detalle">登録日時</string>
+    <string name="Fecha_Nota_Detalle_TXT">メモ日時: </string>
+    <string name="Fecha_Nota_Detalle">メモ日時</string>
+    <string name="Estado_Detalle_TXT">メモのステータス: </string>
+    <string name="Estado_Detalle">ステータス</string>
+
+</resources>

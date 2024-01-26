@@ -1,0 +1,112 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">WhiZzNotes Pro</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="Btn_Login">Login</string>
+    <string name="Btn_Registro">Register</string>
+
+    <!-- ACTIVITY REGISTRO -->
+    <string name="CrearCuentaTXT">Create an account</string>
+    <string name="NombreEt">Name</string>
+    <string name="CorreoEt">Email</string>
+    <string name="ContraseñaEt">Password</string>
+    <string name="ConfirmarContraseñaEt">Confirm password</string>
+    <string name="RegistrarUsuario">Next</string>
+    <string name="TengoUnaCuentaTXTuno">Already have an account?</string>
+    <string name="TengoUnaCuentaTXT">Login</string>
+
+    <!-- ACTIVITY LOGIN -->
+    <string name="IniciarSesionTXT">Login</string>
+    <string name="CorreoLogin">Email</string>
+    <string name="PassLogin">Password</string>
+    <string name="Btn_Logeo">Login</string>
+    <string name="UsuarioNuevoTXTuno">You have an account?</string>
+    <string name="UsuarioNuevoTXT">Sign up</string>
+
+    <!-- MAIN MENU -->
+    <string name="BienvenidoPrincipal">Welcome</string>
+    <string name="UidPrincipal"> -- </string>
+    <string name="NombresPrincipal"> -- </string>
+    <string name="CorreoPrincipal"> -- </string>
+    <string name="EstadoCuentaPrincipal">Not verified</string>
+
+    <string name="AgregarNotas">Add</string>
+    <string name="ListarNotas">My Notes</string>
+    <string name="Archivados">Archived</string>
+    <string name="Contactos">Contacts</string>
+    <string name="AcercaDe">About</string>
+    <string name="CerrarSesion">Log out</string>
+
+    <!-- ADD NOTE -->
+    <string name="Uid_Usuario">User UID</string>
+    <string name="Correo_usuario">User Email</string>
+    <string name="Fecha_hora_actual_TXT">Registration date</string>
+    <string name="Fecha_hora_actual">Current date and time</string>
+    <string name="Titulo">Title</string>
+    <string name="Descripcion">Description</string>
+    <string name="Btn_Calendario">Calendar</string>
+    <string name="Fecha">00/00/0000</string>
+    <string name="Estado">Not completed</string>
+
+    <!-- MENU -->
+    <string name="Agregar_Nota_BD">Add</string>
+    <string name="Actualizar_Nota_BD">Update</string>
+
+    <!-- NOTE ITEM -->
+    <string name="Id_nota_Item">Note ID</string>
+    <string name="Uid_Usuario_Item">User UID</string>
+    <string name="Correo_usuario_Item">User Email</string>
+    <string name="Fecha_hora_registro_Item">Registration date and time</string>
+    <string name="Titulo_Item">Title</string>
+    <string name="Descripcion_Item">Description</string>
+    <string name="Fecha_Item">00/00/0000</string>
+    <string name="Estado_Item">Not completed</string>
+
+    <!-- OPTIONS DIALOG BOX -->
+    <string name="ElijaOpcionTXT">Choose an option</string>
+    <string name="CD_Eliminar">Delete</string>
+    <string name="CD_Actualizar">Update</string>
+
+    <!-- VERIFIED ACCOUNT DIALOG BOX -->
+    <string name="CuentaVerificadaTXT">Verified account</string>
+    <string name="EntendidoVerificado">Understood</string>
+    <string name="Verificado">Verified</string>
+    <string name="No_Verificado">Not Verified</string>
+
+    <!-- UPDATE NOTE -->
+    <string name="Id_nota_A">Note ID</string>
+    <string name="Uid_Usuario_A">User UID</string>
+    <string name="Correo_usuario_A">User Email</string>
+    <string name="Fecha_registro_A">Registration date</string>
+    <string name="Titulo_A">Title</string>
+    <string name="Descripcion_A">Description</string>
+    <string name="Btn_Calendario_A">Calendar</string>
+    <string name="Fecha_A">00/00/0000</string>
+    <string name="Estado_A">Not completed</string>
+    <string name="Estado_nuevo"> -- </string>
+
+    <!-- SPINNER - STATUS -->
+    <string-array name="Estados_nota">
+        <item>Not completed</item>
+        <item>Completed</item>
+    </string-array>
+
+    <!-- NOTE DETAILS -->
+    <string name="Id_nota_Detalle_TXT">Note ID: </string>
+    <string name="Id_nota_Detalle">Note ID</string>
+    <string name="Uid_usuario_Detalle_TXT">User UID: </string>
+    <string name="Uid_usuario_Detalle">User UID</string>
+    <string name="Correo_usuario_Detalle_TXT">User Email: </string>
+    <string name="Correo_usuario_Detalle">User Email</string>
+    <string name="Titulo_Detalle_TXT">Title: </string>
+    <string name="Titulo_Detalle">Title</string>
+    <string name="Descripcion_Detalle_TXT">Description: </string>
+    <string name="Descripcion_Detalle">Description</string>
+    <string name="Fecha_registro_Detalle_TXT">Registration date: </string>
+    <string name="Fecha_Registro_Detalle">Registration date</string>
+    <string name="Fecha_Nota_Detalle_TXT">Note date: </string>
+    <string name="Fecha_Nota_Detalle">Note date</string>
+    <string name="Estado_Detalle_TXT">Note status: </string>
+    <string name="Estado_Detalle">Status</string>
+
+</resources>
