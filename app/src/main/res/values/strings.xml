@@ -32,7 +32,7 @@
 
     <string name="AgregarNotas">Agregar</string>
     <string name="ListarNotas">Mis Notas</string>
-    <string name="Archivados">Archivados</string>
+    <string name="Importantes">Importantes</string>
     <string name="Contactos">Contactos</string>
     <string name="AcercaDe">Acerca De</string>
     <string name="CerrarSesion">Cerrar sesión</string>
@@ -108,6 +108,7 @@
     <string name="Fecha_Nota_Detalle">Fecha nota</string>
     <string name="Estado_Detalle_TXT">Estado de la nota: </string>
     <string name="Estado_Detalle">Estado</string>
+    <string name="Boton_Importante">Importante</string>
 
 </resources>
 

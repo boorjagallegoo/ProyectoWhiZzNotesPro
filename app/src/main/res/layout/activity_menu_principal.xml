@@ -258,13 +258,13 @@
                         android:src="@drawable/archivados" />
 
                     <Button
-                        android:id="@+id/Archivados"
+                        android:id="@+id/Importantes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:enabled="false"
                         android:fontFamily="@font/robotoslab"
-                        android:text="@string/Archivados" />
+                        android:text="@string/Importantes" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>

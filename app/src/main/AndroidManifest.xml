@@ -21,7 +21,7 @@
             android:name=".Perfil.Perfil_Usuario"
             android:exported="false" />
         <activity
-            android:name=".NotasArchivadas.Notas_Archivadas"
+            android:name=".NotasImportantes.Notas_Importantes"
             android:exported="false" />
         <activity
             android:name=".ListarNotas.Listar_Notas"

@@ -32,7 +32,7 @@
 
     <string name="AgregarNotas">追加</string>
     <string name="ListarNotas">私のメモ</string>
-    <string name="Archivados">アーカイブ済み</string>
+    <string name="Importantes">重要</string>
     <string name="Contactos">連絡先</string>
     <string name="AcercaDe">について</string>
     <string name="CerrarSesion">ログアウト</string>
@@ -108,5 +108,6 @@
     <string name="Fecha_Nota_Detalle">メモ日時</string>
     <string name="Estado_Detalle_TXT">メモのステータス: </string>
     <string name="Estado_Detalle">ステータス</string>
+    <string name="Boton_Importante">重要</string>
 
 </resources>

@@ -20,7 +20,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
 import com.bgallego.agenda_online.ListarNotas.Listar_Notas;
-import com.bgallego.agenda_online.NotasArchivadas.Notas_Archivadas;
+import com.bgallego.agenda_online.NotasImportantes.Notas_Importantes;
 import com.bgallego.agenda_online.Perfil.Perfil_Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    Button AgregarNotas, ListarNotas, Archivados, Contactos, AcercaDe, CerrarSesion;
+    Button AgregarNotas, ListarNotas, Importantes, Contactos, AcercaDe, CerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
@@ -77,7 +77,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         AgregarNotas = findViewById(R.id.AgregarNotas);
         ListarNotas = findViewById(R.id.ListarNotas);
-        Archivados = findViewById(R.id.Archivados);
+        Importantes = findViewById(R.id.Importantes);
         Contactos = findViewById(R.id.Contactos);
         AcercaDe = findViewById(R.id.AcercaDe);
         CerrarSesion = findViewById(R.id.CerrarSesion);
@@ -125,10 +125,10 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        Archivados.setOnClickListener(new View.OnClickListener() {
+        Importantes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuPrincipal.this, Notas_Archivadas.class));
+                startActivity(new Intent(MenuPrincipal.this, Notas_Importantes.class));
                 Toast.makeText(MenuPrincipal.this, "Notas Archivadas", Toast.LENGTH_SHORT).show();
             }
         });
@@ -297,7 +297,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     // Habilitar los botones del menú
                     AgregarNotas.setEnabled(true);
                     ListarNotas.setEnabled(true);
-                    Archivados.setEnabled(true);
+                    Importantes.setEnabled(true);
                     Contactos.setEnabled(true);
                     AcercaDe.setEnabled(true);
                     CerrarSesion.setEnabled(true);
