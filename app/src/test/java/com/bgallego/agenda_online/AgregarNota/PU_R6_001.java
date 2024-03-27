@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 @RunWith(RobolectricTestRunner.class)
-public class PU_R7_001 {
+public class PU_R6_001 {
 
     private Agregar_Nota agregarNota;
 

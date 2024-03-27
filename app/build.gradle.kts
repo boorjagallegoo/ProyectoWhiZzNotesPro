@@ -48,9 +48,9 @@ dependencies {
     // ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     // Firebase
-    implementation ("com.google.firebase:firebase-analytics:21.5.0")
+    implementation ("com.google.firebase:firebase-analytics:21.6.1")
     implementation("com.google.firebase:firebase-auth:22.3.1") /*AUTENTICACIÓN DE FIREBASE*/
-    implementation("com.google.firebase:firebase-database:20.3.0") /*BASE DE DATOS DE FIREBASE*/
+    implementation("com.google.firebase:firebase-database:20.3.1") /*BASE DE DATOS DE FIREBASE*/
     implementation ("com.firebaseui:firebase-ui-database:8.0.0") /*FIREBASE UI*/
 
     testImplementation("junit:junit:4.13.2")
