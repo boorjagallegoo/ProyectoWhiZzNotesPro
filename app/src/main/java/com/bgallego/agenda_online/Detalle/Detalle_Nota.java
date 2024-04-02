@@ -125,8 +125,6 @@ public class Detalle_Nota extends AppCompatActivity {
             fecha_R = intent.getString("fecha_nota");
             estado_R = intent.getString("estado");
 
-            String identificador_nota_importante = uid_usuario_R + titulo_R;
-
             HashMap<String, String> Nota_Importante = new HashMap<>();
             Nota_Importante.put("id_nota", id_nota_R);
             Nota_Importante.put("uid_usuario", uid_usuario_R);
@@ -136,10 +134,9 @@ public class Detalle_Nota extends AppCompatActivity {
             Nota_Importante.put("descripcion", descripcion_R);
             Nota_Importante.put("fecha_nota", fecha_R);
             Nota_Importante.put("estado", estado_R);
-            Nota_Importante.put("id_nota_importante", identificador_nota_importante);
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante)
+            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(id_nota_R)
                     .setValue(Nota_Importante)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -160,13 +157,10 @@ public class Detalle_Nota extends AppCompatActivity {
             Toast.makeText(Detalle_Nota.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         } else {
             Bundle intent = getIntent().getExtras();
-            uid_usuario_R = intent.getString("uid_usuario");
-            titulo_R = intent.getString("titulo");
-
-            String identificador_nota_importante = uid_usuario_R + titulo_R;
+            id_nota_R = intent.getString("id_nota");
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante)
+            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(id_nota_R)
                     .removeValue()
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -187,13 +181,10 @@ public class Detalle_Nota extends AppCompatActivity {
             Toast.makeText(Detalle_Nota.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         } else {
             Bundle intent = getIntent().getExtras();
-            uid_usuario_R = intent.getString("uid_usuario");
-            titulo_R = intent.getString("titulo");
-
-            String identificador_nota_importante = uid_usuario_R + titulo_R;
+            id_nota_R = intent.getString("id_nota");
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante)
+            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(id_nota_R)
                     .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
