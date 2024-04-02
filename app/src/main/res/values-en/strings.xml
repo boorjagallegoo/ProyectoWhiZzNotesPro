@@ -62,6 +62,16 @@
     <string name="Fecha_Item">00/00/0000</string>
     <string name="Estado_Item">Not completed</string>
 
+    <!-- NOTE ITEM IMPORTANT -->
+    <string name="Id_nota_Item_I">Note ID</string>
+    <string name="Uid_Usuario_Item_I">User UID</string>
+    <string name="Correo_usuario_Item_I">User Email</string>
+    <string name="Fecha_hora_registro_Item_I">Registration date and time</string>
+    <string name="Titulo_Item_I">Title</string>
+    <string name="Descripcion_Item_I">Description</string>
+    <string name="Fecha_Item_I">00/00/0000</string>
+    <string name="Estado_Item_I">Not completed</string>
+
     <!-- OPTIONS DIALOG BOX -->
     <string name="ElijaOpcionTXT">Choose an option</string>
     <string name="CD_Eliminar">Delete</string>

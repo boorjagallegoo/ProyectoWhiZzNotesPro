@@ -62,6 +62,16 @@
     <string name="Fecha_Item">00/00/0000</string>
     <string name="Estado_Item">未完了</string>
 
+    <!-- ITEM NOTA IMPORTANTE -->
+    <string name="Id_nota_Item_I">メモID</string>
+    <string name="Uid_Usuario_Item_I">ユーザーID</string>
+    <string name="Correo_usuario_Item_I">ユーザーのメール</string>
+    <string name="Fecha_hora_registro_Item_I">登録日時</string>
+    <string name="Titulo_Item_I">タイトル</string>
+    <string name="Descripcion_Item_I">説明</string>
+    <string name="Fecha_Item_I">00/00/0000</string>
+    <string name="Estado_Item_I">未完了</string>
+
     <!-- OPTIONS DIALOG BOX -->
     <string name="ElijaOpcionTXT">オプションを選択</string>
     <string name="CD_Eliminar">削除</string>
