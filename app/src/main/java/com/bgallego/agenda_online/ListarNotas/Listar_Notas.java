@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -159,8 +162,8 @@ public class Listar_Notas extends AppCompatActivity {
                         CD_Eliminar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                               EliminarNota(id_nota);
-                               dialog.dismiss(); // Se cierra automaticamente el cuadro.
+                                EliminarNota(id_nota);
+                                dialog.dismiss(); // Se cierra automaticamente el cuadro.
 
                             }
                         });
@@ -169,7 +172,7 @@ public class Listar_Notas extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 // Toast.makeText(Listar_Notas.this, "Actualizar nota", Toast.LENGTH_SHORT).show();
-                               // startActivity(new Intent(Listar_Notas.this, Actualizar_Nota.class)); // Ir a la actividad Actualizar nota.
+                                // startActivity(new Intent(Listar_Notas.this, Actualizar_Nota.class)); // Ir a la actividad Actualizar nota.
                                 Intent intent = new Intent(Listar_Notas.this, Actualizar_Nota.class);
                                 intent.putExtra("id_nota", id_nota);
                                 intent.putExtra("uid_usuario", uid_usuario);
@@ -250,6 +253,76 @@ public class Listar_Notas extends AppCompatActivity {
 
         // Crear y mostrar el cuadro de diálogo
         builder.create().show();
+    }
+
+    /**
+     * Muestra un diálogo de confirmación para vaciar todos los registros de notas.
+     */
+    private void Vaciar_Registro_De_Notas() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Notas.this);
+        builder.setTitle("Vaciar todos los registros");
+        builder.setMessage("¿Estás seguro(a) de eliminar todas las notas?");
+
+        // Configuración del botón positivo (Sí)
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Eliminación de todas las notas
+                Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Notas.this, "Todas las notas se han eliminado correctamente", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Manejo de error en la eliminación de notas
+                    }
+                });
+            }
+        });
+
+        // Configuración del botón negativo (No)
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(Listar_Notas.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Mostrar el diálogo
+        builder.create().show();
+    }
+
+    /**
+     * Infla el menú en la barra de acción.
+     *
+     * @param menu El menú en el que se inflarán los elementos de la barra de acción.
+     * @return Devuelve true para mostrar el menú, false de lo contrario.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_vaciar_todas_las_notas, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * Maneja las selecciones de elementos del menú de la barra de acción.
+     *
+     * @param item El elemento del menú seleccionado.
+     * @return Devuelve true si el elemento fue manejado correctamente, false de lo contrario.
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Vaciar_Todas_Las_Notas) {
+            Vaciar_Registro_De_Notas();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

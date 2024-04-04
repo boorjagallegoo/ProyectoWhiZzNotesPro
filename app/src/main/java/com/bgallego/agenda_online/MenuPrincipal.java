@@ -54,7 +54,7 @@ public class MenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("WhiZzNotes Pro");
+        actionBar.setTitle("");
 
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);

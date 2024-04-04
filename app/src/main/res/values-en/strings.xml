@@ -51,6 +51,7 @@
     <!-- MENU -->
     <string name="Agregar_Nota_BD">Add</string>
     <string name="Actualizar_Nota_BD">Update</string>
+    <string name="Vaciar_Todas_Las_Notas">Empty all notes</string>
 
     <!-- NOTE ITEM -->
     <string name="Id_nota_Item">Note ID</string>
@@ -82,6 +83,11 @@
     <string name="EntendidoVerificado">Understood</string>
     <string name="Verificado">Verified</string>
     <string name="No_Verificado">Not Verified</string>
+
+    <!--DIALOG BOX - DELETE IMPORTANT NOTE-->
+    <string name="EliminarNotaImportanteTXT">Do you want to delete this important note from the list?</string>
+    <string name="EliminarNota">Delete</string>
+    <string name="EliminarNotaCancelar">Cancel</string>
 
     <!-- UPDATE NOTE -->
     <string name="Id_nota_A">Note ID</string>

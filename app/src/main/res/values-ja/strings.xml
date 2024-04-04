@@ -51,6 +51,7 @@
     <!-- MENÚ -->
     <string name="Agregar_Nota_BD">追加</string>
     <string name="Actualizar_Nota_BD">更新</string>
+    <string name="Vaciar_Todas_Las_Notas">すべてのメモを空にする</string>
 
     <!-- ITEM NOTA -->
     <string name="Id_nota_Item">メモID</string>
@@ -82,6 +83,11 @@
     <string name="EntendidoVerificado">了解しました</string>
     <string name="Verificado">確認済み</string>
     <string name="No_Verificado">未確認</string>
+
+    <!--CUADRO DE DIÁLOGO - ELIMINAR NOTA IMPORTANTE-->
+    <string name="EliminarNotaImportanteTXT">リストからこの重要なメモを削除しますか？</string>
+    <string name="EliminarNota">削除</string>
+    <string name="EliminarNotaCancelar">キャンセル</string>
 
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">メモID</string>
