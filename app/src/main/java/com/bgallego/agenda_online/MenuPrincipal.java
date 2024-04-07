@@ -6,6 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -136,8 +139,8 @@ public class MenuPrincipal extends AppCompatActivity {
         Contactos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
-                Toast.makeText(MenuPrincipal.this, "Perfil Usuario", Toast.LENGTH_SHORT).show();
+                // startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
+                Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -158,6 +161,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     /**
      * Método que muestra un cuadro de diálogo para confirmar el envío de instrucciones de verificación al correo electrónico del usuario.
+     *
      * @distinctiveSection Verificar usuario por correo electrónico
      */
     private void VerificarCuentaCorreo() {
@@ -180,6 +184,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     /**
      * Método que envía instrucciones de verificación al correo electrónico del usuario y muestra mensajes de éxito o error.
+     *
      * @distinctiveSection Verificar usuario por correo electrónico
      */
     private void EnviarCorreoAVerificacion() {
@@ -206,6 +211,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     /**
      * Método que verifica el estado de la cuenta del usuario y actualiza la interfaz de usuario en consecuencia.
+     *
      * @distinctiveSection Verificar usuario por correo electrónico
      */
     private void VerificarEstadoCuenta() {
@@ -213,10 +219,10 @@ public class MenuPrincipal extends AppCompatActivity {
         String No_Verificado = "No Verificado";
         if (user.isEmailVerified()) {
             EstadoCuentaPrincipal.setText(Verificado);
-            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(114,220,41));
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(114, 220, 41));
         } else {
             EstadoCuentaPrincipal.setText(No_Verificado);
-            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231,76,60));
+            EstadoCuentaPrincipal.setBackgroundColor(Color.rgb(231, 76, 60));
         }
     }
 
@@ -236,7 +242,6 @@ public class MenuPrincipal extends AppCompatActivity {
         dialog_cuenta_verificada.show();
         dialog_cuenta_verificada.setCanceledOnTouchOutside(false);
     }
-
 
     /**
      * Método que se llama cuando la actividad está a punto de hacerse visible para el usuario.
@@ -309,6 +314,21 @@ public class MenuPrincipal extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_principal, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Perfil_usuario) {
+            startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**

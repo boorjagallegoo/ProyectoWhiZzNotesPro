@@ -52,6 +52,7 @@
     <string name="Agregar_Nota_BD">追加</string>
     <string name="Actualizar_Nota_BD">更新</string>
     <string name="Vaciar_Todas_Las_Notas">すべてのメモを空にする</string>
+    <string name="Perfil_usuario">ユーザープロフィール</string>
 
     <!-- ITEM NOTA -->
     <string name="Id_nota_Item">メモID</string>
@@ -89,6 +90,10 @@
     <string name="EliminarNota">削除</string>
     <string name="EliminarNotaCancelar">キャンセル</string>
 
+    <!--CUADRO DE DIÁLOGO -ESTABLECER TELÉFONO-->
+    <string name="Establecer_Telefono">電話番号を入力してください</string>
+    <string name="Btn_Aceptar_Telefono">承諾する</string>
+
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">メモID</string>
     <string name="Uid_Usuario_A">ユーザーID</string>
@@ -125,5 +130,19 @@
     <string name="Estado_Detalle_TXT">メモのステータス: </string>
     <string name="Estado_Detalle">ステータス</string>
     <string name="Boton_Importante">重要</string>
+
+    <!--Perfil de usuario-->
+    <string name="Uid_Perfil">UID</string>
+    <string name="Nombres_Perfil">名</string>
+    <string name="Apellidos_Perfil">姓</string>
+    <string name="Correo_Perfil">メール</string>
+    <string name="Edad_Perfil">年齢</string>
+    <string name="Telefono_Perfil">電話</string>
+    <string name="Domicilio_Perfil">住所</string>
+    <string name="Universidad_Perfil">大学</string>
+    <string name="Profesion_Perfil">職業</string>
+    <string name="Fecha_Nacimiento_Perfil">生年月日</string>
+    <string name="Guardar_Datos">データ保存</string>
+
 
 </resources>

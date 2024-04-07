@@ -53,45 +53,46 @@
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
-            <!--ICONO - TXT - UID USUARIO-->
-            <!--  <androidx.appcompat.widget.LinearLayoutCompat
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="10dp"
-                  android:orientation="horizontal">
-       -->
+            <!-- ICONO - TXT - UID USUARIO -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
 
-            <!--ICONO-->
-            <!--       <androidx.appcompat.widget.AppCompatImageView
-                       android:layout_width="30dp"
-                       android:layout_height="30dp"
-                       android:layout_gravity="center"
-                       android:src="@drawable/uid_usuario_detalle"/>
-        -->
-            <!--TXT-->
-            <!--     <TextView
-                     android:text="@string/Uid_usuario_Detalle_TXT"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_gravity="center"
-                     android:fontFamily="@font/robotoslab"
-                     android:textSize="20sp"
-                     android:layout_marginStart="10dp"/>
+                <!-- ICONO -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/uid_usuario_detalle" />
 
-             </androidx.appcompat.widget.LinearLayoutCompat>
-         -->
+                <!-- TXT -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/robotoslab"
+                    android:text="@string/Uid_usuario_Detalle_TXT"
+                    android:textSize="20sp" />
 
-            <!--DATO - UID USUARIO-->
-            <!--    <TextView
-                      android:id="@+id/Uid_usuario_Detalle"
-                      android:text="@string/Uid_usuario_Detalle"
-                      android:fontFamily="@font/robotoslab"
-                      android:textSize="17sp"
-                      android:textStyle="bold"
-                      android:layout_gravity="center"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"/>
-             -->
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!-- DATO - UID USUARIO -->
+            <TextView
+                android:id="@+id/Uid_usuario_Detalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/robotoslab"
+                android:text="@string/Uid_usuario_Detalle"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
             <!--ICONO - TXT - CORREO-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"

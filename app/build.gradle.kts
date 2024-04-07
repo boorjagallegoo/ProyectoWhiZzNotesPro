@@ -52,6 +52,10 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.3.1") /*AUTENTICACIÓN DE FIREBASE*/
     implementation("com.google.firebase:firebase-database:20.3.1") /*BASE DE DATOS DE FIREBASE*/
     implementation ("com.firebaseui:firebase-ui-database:8.0.0") /*FIREBASE UI*/
+    // Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    // Country code picker android github
+    implementation ("com.hbb20:ccp:2.5.0")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation ("org.robolectric:robolectric:4.7")

@@ -150,10 +150,20 @@ public class Registro extends AppCompatActivity {
 
         // Crear un mapa para almacenar los datos del usuario.
         HashMap<String, String> Datos = new HashMap<>();
+        /* DATOS DEL USUARIO */
         Datos.put("uid", uid);
         Datos.put("correo", correo);
         Datos.put("nombre", nombre);
         Datos.put("password", password);
+
+        Datos.put("apellidos", "");
+        Datos.put("edad", "");
+        Datos.put("telefono", "");
+        Datos.put("domicilio", "");
+        Datos.put("universidad", "");
+        Datos.put("profesion", "");
+        Datos.put("fecha_de_nacimiento", "");
+        Datos.put("imagen_perfil", "");
 
         // Inicializamos la BD y establecemos su nombre "Usuarios".
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");

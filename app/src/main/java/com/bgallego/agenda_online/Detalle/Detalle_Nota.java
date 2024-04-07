@@ -69,7 +69,7 @@ public class Detalle_Nota extends AppCompatActivity {
 
     private void InicializarVistas() {
         Id_nota_Detalle = findViewById(R.id.Id_nota_Detalle);
-        // Uid_usuario_Detalle = findViewById(R.id.Uid_usuario_Detalle);
+        Uid_usuario_Detalle = findViewById(R.id.Uid_usuario_Detalle);
         Correo_usuario_Detalle = findViewById(R.id.Correo_usuario_Detalle);
         Titulo_Detalle = findViewById(R.id.Titulo_Detalle);
         Descripcion_Detalle = findViewById(R.id.Descripcion_Detalle);
@@ -88,7 +88,7 @@ public class Detalle_Nota extends AppCompatActivity {
 
         // Almacenamos los datos recuperados del intent, key = intent.putExtra de CD_Actualizar
         id_nota_R = intent.getString("id_nota");
-        // uid_usuario_R = intent.getString("uid_usuario");
+        uid_usuario_R = intent.getString("uid_usuario");
         correo_usuario_R = intent.getString("correo_usuario");
         fecha_registro_R = intent.getString("fecha_registro");
         titulo_R = intent.getString("titulo");
@@ -99,7 +99,7 @@ public class Detalle_Nota extends AppCompatActivity {
 
     private void SetearDatosRecuperados() {
         Id_nota_Detalle.setText(id_nota_R);
-        // Uid_usuario_Detalle.setText(uid_usuario_R);
+        Uid_usuario_Detalle.setText(uid_usuario_R);
         Correo_usuario_Detalle.setText(correo_usuario_R);
         Fecha_Registro_Detalle.setText(fecha_registro_R);
         Titulo_Detalle.setText(titulo_R);
