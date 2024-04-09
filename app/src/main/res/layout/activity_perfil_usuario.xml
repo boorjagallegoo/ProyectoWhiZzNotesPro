@@ -32,7 +32,18 @@
                 android:layout_marginTop="120dp"
                 android:background="#354f60"
                 android:scaleType="centerCrop"
-                android:src="@drawable/imagen_perfil_usuario" />
+                android:src="@drawable/imagen_perfil_usuario"/>
+
+            <!-- Imagen de perfil -->
+            <ImageView
+                android:id="@+id/Editar_imagen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="230dp"
+                android:src="@drawable/editar_imagen_perfil"/>
+
+
 
         </RelativeLayout>
 

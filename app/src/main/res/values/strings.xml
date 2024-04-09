@@ -90,9 +90,14 @@
     <string name="EliminarNota">Eliminar</string>
     <string name="EliminarNotaCancelar">Cancelar</string>
 
-    <!--CUADRO DE DIÁLOGO -ESTABLECER TELÉFONO-->
+    <!--CUADRO DE DIÁLOGO - ESTABLECER TELÉFONO-->
     <string name="Establecer_Telefono">Escriba su teléfono</string>
     <string name="Btn_Aceptar_Telefono">Aceptar</string>
+
+    <!--CUADRO DE DIÁLOGO - ELEGIR IMAGEN DE-->
+    <string name="ElegirImagenTXT">Elegir imagen de:</string>
+    <string name="Btn_Elegir_Galeria">Galería</string>
+    <string name="Btn_Elegir_Camara">Cámara</string>
 
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">Id nota</string>
@@ -143,6 +148,10 @@
     <string name="Profesion_Perfil">Profesión</string>
     <string name="Fecha_Nacimiento_Perfil">Fecha de nac.</string>
     <string name="Guardar_Datos">Guardar datos</string>
+
+    <!--Perfil de usuario [Imagen de perfil]-->
+    <string name="BtnElegirImagenDe">Elegir imagen de</string>
+    <string name="BtnActualizarImagen">Actualizar imagen</string>
 
 </resources>
 

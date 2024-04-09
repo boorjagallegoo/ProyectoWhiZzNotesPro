@@ -94,6 +94,11 @@
     <string name="Establecer_Telefono">Enter your phone number</string>
     <string name="Btn_Aceptar_Telefono">Accept</string>
 
+    <!--DIALOG BOX - CHOOSE IMAGE FROM-->
+    <string name="ElegirImagenTXT">Choose image from:</string>
+    <string name="Btn_Elegir_Galeria">Gallery</string>
+    <string name="Btn_Elegir_Camara">Camera</string>
+
     <!-- UPDATE NOTE -->
     <string name="Id_nota_A">Note ID</string>
     <string name="Uid_Usuario_A">User UID</string>
@@ -143,6 +148,11 @@
     <string name="Profesion_Perfil">Profession</string>
     <string name="Fecha_Nacimiento_Perfil">Date of Birth</string>
     <string name="Guardar_Datos">Save Data</string>
+
+    <!--User Profile [Profile Image]-->
+    <string name="BtnElegirImagenDe">Choose image from</string>
+    <string name="BtnActualizarImagen">Update image</string>
+
 
 
 </resources>

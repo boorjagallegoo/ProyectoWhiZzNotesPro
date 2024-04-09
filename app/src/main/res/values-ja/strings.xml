@@ -90,9 +90,14 @@
     <string name="EliminarNota">削除</string>
     <string name="EliminarNotaCancelar">キャンセル</string>
 
-    <!--CUADRO DE DIÁLOGO -ESTABLECER TELÉFONO-->
+    <!--CUADRO DE DIÁLOGO - ESTABLECER TELÉFONO-->
     <string name="Establecer_Telefono">電話番号を入力してください</string>
     <string name="Btn_Aceptar_Telefono">承諾する</string>
+
+    <!--CUADRO DE DIÁLOGO - ELEGIR IMAGEN DE-->
+    <string name="ElegirImagenTXT">から画像を選択:</string>
+    <string name="Btn_Elegir_Galeria">ギャラリー</string>
+    <string name="Btn_Elegir_Camara">カメラ</string>
 
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">メモID</string>
@@ -144,5 +149,8 @@
     <string name="Fecha_Nacimiento_Perfil">生年月日</string>
     <string name="Guardar_Datos">データ保存</string>
 
+    <!--Perfil de usuario [Imagen de perfil]-->
+    <string name="BtnElegirImagenDe">から画像を選択</string>
+    <string name="BtnActualizarImagen">画像を更新</string>
 
 </resources>
