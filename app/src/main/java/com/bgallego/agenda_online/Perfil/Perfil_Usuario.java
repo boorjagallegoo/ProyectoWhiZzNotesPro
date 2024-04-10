@@ -4,6 +4,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bgallego.agenda_online.ActualizarPass.ActualizarPassUsuario;
 import com.bgallego.agenda_online.MenuPrincipal;
 import com.bgallego.agenda_online.R;
 import com.bumptech.glide.Glide;
@@ -117,7 +121,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         Guardar_Datos = findViewById(R.id.Guardar_Datos);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser(); // Obetenemos al usuario actual
+        user = firebaseAuth.getCurrentUser(); // Obtenemos al usuario actual
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
     }
 
@@ -300,6 +304,21 @@ public class Perfil_Usuario extends AppCompatActivity {
                         Toast.makeText(Perfil_Usuario.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_actualizar_pass, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Actualizar_pass) {
+            startActivity(new Intent(Perfil_Usuario.this, ActualizarPassUsuario.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void ComprobarInicioSesion() {

@@ -53,6 +53,7 @@
     <string name="Actualizar_Nota_BD">Update</string>
     <string name="Vaciar_Todas_Las_Notas">Empty all notes</string>
     <string name="Perfil_usuario">User Profile</string>
+    <string name="Actualizar_pass">Update password</string>
 
     <!-- NOTE ITEM -->
     <string name="Id_nota_Item">Note ID</string>
@@ -152,6 +153,14 @@
     <!--User Profile [Profile Image]-->
     <string name="BtnElegirImagenDe">Choose image from</string>
     <string name="BtnActualizarImagen">Update image</string>
+
+    <!--Change Password-->
+    <string name="ActualizarPassTXT">Current password: </string>
+    <string name="ActualPass"> -- </string>
+    <string name="EtActualPass">Current Password</string>
+    <string name="EtNuevoPass">New password</string>
+    <string name="EtRNuevoPass">Repeat new password</string>
+    <string name="BtnActualizarPass">Update</string>
 
 
 

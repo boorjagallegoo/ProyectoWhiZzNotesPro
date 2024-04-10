@@ -53,6 +53,7 @@
     <string name="Actualizar_Nota_BD">Actualizar</string>
     <string name="Vaciar_Todas_Las_Notas">Vaciar todas las notas</string>
     <string name="Perfil_usuario">Perfil del usuario</string>
+    <string name="Actualizar_pass">Actualizar contraseña</string>
 
     <!--ITEM NOTA-->
     <string name="Id_nota_Item">Id nota</string>
@@ -152,6 +153,14 @@
     <!--Perfil de usuario [Imagen de perfil]-->
     <string name="BtnElegirImagenDe">Elegir imagen de</string>
     <string name="BtnActualizarImagen">Actualizar imagen</string>
+
+    <!--Cambiar Contraseña-->
+    <string name="ActualizarPassTXT">Contraseña actual: </string>
+    <string name="ActualPass"> -- </string>
+    <string name="EtActualPass">Contraseña actual</string>
+    <string name="EtNuevoPass">Nueva contraseña</string>
+    <string name="EtRNuevoPass">Repetir nueva contraseña</string>
+    <string name="BtnActualizarPass">Actualizar</string>
 
 </resources>
 

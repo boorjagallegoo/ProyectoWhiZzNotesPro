@@ -53,6 +53,7 @@
     <string name="Actualizar_Nota_BD">更新</string>
     <string name="Vaciar_Todas_Las_Notas">すべてのメモを空にする</string>
     <string name="Perfil_usuario">ユーザープロフィール</string>
+    <string name="Actualizar_pass">パスワードを更新</string>
 
     <!-- ITEM NOTA -->
     <string name="Id_nota_Item">メモID</string>
@@ -152,5 +153,13 @@
     <!--Perfil de usuario [Imagen de perfil]-->
     <string name="BtnElegirImagenDe">から画像を選択</string>
     <string name="BtnActualizarImagen">画像を更新</string>
+
+    <!--Cambiar Contraseña-->
+    <string name="ActualizarPassTXT">現在のパスワード: </string>
+    <string name="ActualPass"> -- </string>
+    <string name="EtActualPass">現在のパスワード</string>
+    <string name="EtNuevoPass">新しいパスワード</string>
+    <string name="EtRNuevoPass">新しいパスワードを繰り返します</string>
+    <string name="BtnActualizarPass">アップデート</string>
 
 </resources>
