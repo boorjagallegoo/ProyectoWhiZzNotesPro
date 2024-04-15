@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda_Online">
         <activity
+            android:name=".Contactos.Agregar_Contacto"
+            android:exported="false" />
+        <activity
+            android:name=".Contactos.Listar_Contactos"
+            android:exported="false" />
+        <activity
             android:name=".ActualizarPass.ActualizarPassUsuario"
             android:exported="false" />
         <activity

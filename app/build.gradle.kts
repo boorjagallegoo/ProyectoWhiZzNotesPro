@@ -41,6 +41,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.11.0")
     implementation ("androidx.annotation:annotation:1.7.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.activity:activity:1.8.2")
     // Lottie
     implementation("com.airbnb.android:lottie:3.0.1")
     // LiveData
@@ -57,7 +58,6 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     // Country code picker android github
     implementation ("com.hbb20:ccp:2.5.0")
-    implementation("androidx.activity:activity:1.8.0")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation ("org.robolectric:robolectric:4.7")

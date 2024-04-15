@@ -54,6 +54,7 @@
     <string name="Vaciar_Todas_Las_Notas">すべてのメモを空にする</string>
     <string name="Perfil_usuario">ユーザープロフィール</string>
     <string name="Actualizar_pass">パスワードを更新</string>
+    <string name="Agregar_contacto">連絡先を追加</string>
 
     <!-- ITEM NOTA -->
     <string name="Id_nota_Item">メモID</string>
@@ -74,6 +75,16 @@
     <string name="Descripcion_Item_I">説明</string>
     <string name="Fecha_Item_I">00/00/0000</string>
     <string name="Estado_Item_I">未完了</string>
+
+    <!--ITEM CONTACTO-->
+    <string name="Id_c_Item">メモ ID</string>
+    <string name="Uid_c_Item">ユーザー Uid</string>
+    <string name="nombres_c_Item">名前</string>
+    <string name="apellidos_c_Item">姓</string>
+    <string name="correo_c_Item">>メール</string>
+    <string name="telefono_c_Item">電話</string>
+    <string name="edad_c_Item">年齢</string>
+    <string name="direccion_c_Item">住所</string>
 
     <!-- OPTIONS DIALOG BOX -->
     <string name="ElijaOpcionTXT">オプションを選択</string>
@@ -161,5 +172,15 @@
     <string name="EtNuevoPass">新しいパスワード</string>
     <string name="EtRNuevoPass">新しいパスワードを繰り返します</string>
     <string name="BtnActualizarPass">アップデート</string>
+
+    <!--連絡先を追加-->
+    <string name="Uid_Usuario_C">私の uid</string>
+    <string name="Nombres_C">連絡先名</string>
+    <string name="Apellidos_C">連絡先の姓</string>
+    <string name="Correo_C">電子メール</string>
+    <string name="Telefono_C">電話</string>
+    <string name="Edad_C">年齢</string>
+    <string name="Direccion_C">住所</string>
+    <string name="Btn_Guardar_Contacto">連絡先を保存</string>
 
 </resources>

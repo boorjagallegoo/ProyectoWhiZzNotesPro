@@ -1,5 +1,7 @@
 package com.bgallego.agenda_online.ActualizarPass;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;

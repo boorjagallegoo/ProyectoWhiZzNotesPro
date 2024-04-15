@@ -54,6 +54,7 @@
     <string name="Vaciar_Todas_Las_Notas">Vaciar todas las notas</string>
     <string name="Perfil_usuario">Perfil del usuario</string>
     <string name="Actualizar_pass">Actualizar contraseña</string>
+    <string name="Agregar_contacto">Agregar contacto</string>
 
     <!--ITEM NOTA-->
     <string name="Id_nota_Item">Id nota</string>
@@ -74,6 +75,16 @@
     <string name="Descripcion_Item_I">Descripción</string>
     <string name="Fecha_Item_I">00/00/0000</string>
     <string name="Estado_Item_I">No finalizado</string>
+
+    <!--ITEM CONTACTO-->
+    <string name="Id_c_Item">Id nota</string>
+    <string name="Uid_c_Item">Uid usuario</string>
+    <string name="nombres_c_Item">Nombres</string>
+    <string name="apellidos_c_Item">Apellidos</string>
+    <string name="correo_c_Item">Correo</string>
+    <string name="telefono_c_Item">Teléfono</string>
+    <string name="edad_c_Item">Edad</string>
+    <string name="direccion_c_Item">Dirección</string>
 
     <!--CUADRO DE DIÁLOGO OPCIONES-->
     <string name="ElijaOpcionTXT">Elija una opción</string>
@@ -161,6 +172,16 @@
     <string name="EtNuevoPass">Nueva contraseña</string>
     <string name="EtRNuevoPass">Repetir nueva contraseña</string>
     <string name="BtnActualizarPass">Actualizar</string>
+
+    <!--AGREGAR CONTACTO-->
+    <string name="Uid_Usuario_C">Mi uid</string>
+    <string name="Nombres_C">Nombres contacto</string>
+    <string name="Apellidos_C">Apellidos contacto</string>
+    <string name="Correo_C">Correo electrónico</string>
+    <string name="Telefono_C">Teléfono</string>
+    <string name="Edad_C">Edad</string>
+    <string name="Direccion_C">Dirección</string>
+    <string name="Btn_Guardar_Contacto">Guardar contacto</string>
 
 </resources>
 

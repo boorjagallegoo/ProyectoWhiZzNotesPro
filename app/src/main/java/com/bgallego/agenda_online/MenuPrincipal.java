@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
+import com.bgallego.agenda_online.Contactos.Listar_Contactos;
 import com.bgallego.agenda_online.ListarNotas.Listar_Notas;
 import com.bgallego.agenda_online.NotasImportantes.Notas_Importantes;
 import com.bgallego.agenda_online.Perfil.Perfil_Usuario;
@@ -138,9 +139,14 @@ public class MenuPrincipal extends AppCompatActivity {
 
         Contactos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
-                Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                //Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
+                /*Obteniendo el dato uid del usuario*/
+                String uid_usuario = UidPrincipal.getText().toString();
+                Intent intent = new Intent(MenuPrincipal.this, Listar_Contactos.class);
+                /*Enviamos el dato a la siguiente actividad*/
+                intent.putExtra("Uid", uid_usuario);
+                startActivity(intent);
             }
         });
 

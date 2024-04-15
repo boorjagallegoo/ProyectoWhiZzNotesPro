@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">WhiZzNotes Pro</string>
 
     <!-- MAIN ACTIVITY -->
@@ -54,6 +54,7 @@
     <string name="Vaciar_Todas_Las_Notas">Empty all notes</string>
     <string name="Perfil_usuario">User Profile</string>
     <string name="Actualizar_pass">Update password</string>
+    <string name="Agregar_contacto">Add contact</string>
 
     <!-- NOTE ITEM -->
     <string name="Id_nota_Item">Note ID</string>
@@ -74,6 +75,16 @@
     <string name="Descripcion_Item_I">Description</string>
     <string name="Fecha_Item_I">00/00/0000</string>
     <string name="Estado_Item_I">Not completed</string>
+
+    <!--ITEM CONTACTO-->
+    <string name="Id_c_Item">Note Id</string>
+    <string name="Uid_c_Item">User Uid</string>
+    <string name="nombres_c_Item">Names</string>
+    <string name="apellidos_c_Item">Surnames</string>
+    <string name="correo_c_Item">Mail</string>
+    <string name="telefono_c_Item">Telephone</string>
+    <string name="edad_c_Item">Age</string>
+    <string name="direccion_c_Item">Address</string>
 
     <!-- OPTIONS DIALOG BOX -->
     <string name="ElijaOpcionTXT">Choose an option</string>
@@ -162,6 +173,14 @@
     <string name="EtRNuevoPass">Repeat new password</string>
     <string name="BtnActualizarPass">Update</string>
 
-
+    <!--ADD CONTACT-->
+    <string name="Uid_Usuario_C">My uid</string>
+    <string name="Nombres_C">Contact Names</string>
+    <string name="Apellidos_C">Contact surnames</string>
+    <string name="Correo_C">Email</string>
+    <string name="Telefono_C">Phone</string>
+    <string name="Edad_C">Age</string>
+    <string name="Direccion_C">Address</string>
+    <string name="Btn_Guardar_Contacto">Save contact</string>
 
 </resources>
