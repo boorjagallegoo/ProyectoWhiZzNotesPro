@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bgallego.agenda_online.Objetos.Contacto;
@@ -32,10 +33,18 @@ public class Agregar_Contacto extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
+    Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_contacto);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Agregar contacto");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         InicializarVariables();
         ObtenerUidUsuario();
@@ -71,6 +80,8 @@ public class Agregar_Contacto extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        dialog = new Dialog(Agregar_Contacto.this);
     }
 
     private void ObtenerUidUsuario() {
@@ -136,8 +147,36 @@ public class Agregar_Contacto extends AppCompatActivity {
             onBackPressed();
 
         } else {
-            Toast.makeText(this, "Por favor complete al menos el nombre del contacto", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "Por favor complete al menos el nombre del contacto", Toast.LENGTH_SHORT).show();
+            ValidarRegistroContacto();
         }
 
+    }
+
+    private void ValidarRegistroContacto() {
+
+        Button Btn_Validar_Registro_C;
+
+        dialog.setContentView(R.layout.cuadro_dialogo_validar_registro_c);
+
+        Btn_Validar_Registro_C = dialog.findViewById(R.id.Btn_Validar_Registro_C);
+
+        Btn_Validar_Registro_C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(true);
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Acción que nos permite regresar a la actividad anterior
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

@@ -111,6 +111,10 @@
     <string name="Btn_Elegir_Galeria">Gallery</string>
     <string name="Btn_Elegir_Camara">Camera</string>
 
+    <!--CUADRO DE DIÁLOGO - VALIDAR REGISTRO DE CONTACTO-->
+    <string name="ValidarTXT">Please fill in at least the contact name</string>
+    <string name="Btn_Validar_Registro_C">Understood</string>
+
     <!-- UPDATE NOTE -->
     <string name="Id_nota_A">Note ID</string>
     <string name="Uid_Usuario_A">User UID</string>

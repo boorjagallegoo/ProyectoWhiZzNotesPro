@@ -38,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
+                android:visibility="gone"
                 android:text="@string/Id_c_Item"
                 android:textSize="18sp" />
 
@@ -45,6 +46,7 @@
             <TextView
                 android:id="@+id/Uid_c_Item"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/Uid_c_Item"
@@ -57,7 +59,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/nombres_c_Item"
-                android:textSize="18sp" />
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <!-- Apellidos de contacto -->
             <TextView
@@ -65,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
+                android:gravity="center"
                 android:text="@string/apellidos_c_Item"
                 android:textSize="18sp" />
 
@@ -75,12 +80,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/correo_c_Item"
-                android:textSize="18sp" />
+                android:gravity="center"
+                android:textSize="13sp" />
 
             <!-- Teléfono de contacto -->
             <TextView
                 android:id="@+id/telefono_c_Item"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/telefono_c_Item"
@@ -90,6 +97,7 @@
             <TextView
                 android:id="@+id/edad_c_Item"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/edad_c_Item"
@@ -99,6 +107,7 @@
             <TextView
                 android:id="@+id/direccion_c_Item"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/direccion_c_Item"

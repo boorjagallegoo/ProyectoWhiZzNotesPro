@@ -111,6 +111,10 @@
     <string name="Btn_Elegir_Galeria">ギャラリー</string>
     <string name="Btn_Elegir_Camara">カメラ</string>
 
+    <!--CUADRO DE DIÁLOGO - VALIDAR REGISTRO DE CONTACTO-->
+    <string name="ValidarTXT">少なくとも連絡先名を入力してください</string>
+    <string name="Btn_Validar_Registro_C">理解した</string>
+
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">メモID</string>
     <string name="Uid_Usuario_A">ユーザーID</string>
