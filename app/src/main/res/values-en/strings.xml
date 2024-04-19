@@ -187,4 +187,16 @@
     <string name="Direccion_C">Address</string>
     <string name="Btn_Guardar_Contacto">Save contact</string>
 
+    <!--DETALLE CONTACTO-->
+    <string name="DetalleContactoTXT">Contact details</string>
+    <string name="Id_C_D"> -- </string>
+    <string name="Uid_Usuario_D"> -- </string>
+    <string name="Nombres_C_D"> -- </string>
+    <string name="Apellidos_C_D"> -- </string>
+    <string name="Correo_C_D"> -- </string>
+    <string name="Telefono_C_D"> -- </string>
+    <string name="Edad_C_D"> -- </string>
+    <string name="Direccion_C_D"> -- </string>
+    <string name="Btn_Actualizar_D"> -- </string>
+
 </resources>

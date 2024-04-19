@@ -38,7 +38,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/robotoslab"
             android:hint="@string/Nombres_C"
-            android:inputType="textPersonName" />
+            android:inputType="textCapWords|textPersonName" />
 
         <!-- Apellidos del contacto -->
         <EditText
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab"
             android:hint="@string/Apellidos_C"
-            android:inputType="textPersonName" />
+            android:inputType="textCapWords|textPersonName" />
 
         <!-- Correo del contacto -->
         <EditText
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoslab"
             android:hint="@string/Direccion_C"
-            android:inputType="text" />
+            android:inputType="textCapWords|text" />
 
         <!-- Botón para registrar contacto -->
         <Button

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">WhiZzNotes Pro</string>
 
     <!-- MAIN ACTIVITY -->
@@ -186,5 +186,17 @@
     <string name="Edad_C">年齢</string>
     <string name="Direccion_C">住所</string>
     <string name="Btn_Guardar_Contacto">連絡先を保存</string>
+
+    <!--DETALLE CONTACTO-->
+    <string name="DetalleContactoTXT">連絡先の詳細</string>
+    <string name="Id_C_D"> -- </string>
+    <string name="Uid_Usuario_D"> -- </string>
+    <string name="Nombres_C_D"> -- </string>
+    <string name="Apellidos_C_D"> -- </string>
+    <string name="Correo_C_D"> -- </string>
+    <string name="Telefono_C_D"> -- </string>
+    <string name="Edad_C_D"> -- </string>
+    <string name="Direccion_C_D"> -- </string>
+    <string name="Btn_Actualizar_D"> -- </string>
 
 </resources>
