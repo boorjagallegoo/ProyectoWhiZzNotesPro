@@ -55,6 +55,7 @@
     <string name="Perfil_usuario">User Profile</string>
     <string name="Actualizar_pass">Update password</string>
     <string name="Agregar_contacto">Add contact</string>
+    <string name="Vaciar_contactos">Delete all contacts</string>
 
     <!-- NOTE ITEM -->
     <string name="Id_nota_Item">Note ID</string>
@@ -114,6 +115,11 @@
     <!--CUADRO DE DIÁLOGO - VALIDAR REGISTRO DE CONTACTO-->
     <string name="ValidarTXT">Please fill in at least the contact name</string>
     <string name="Btn_Validar_Registro_C">Understood</string>
+
+    <!--DIALOG BOX - CONTACT OPTIONS-->
+    <string name="ElegirOpcionContactoTXT">Select an option for the contact</string>
+    <string name="Btn_Eliminar_C">Delete</string>
+    <string name="Btn_Actualizar_C">Update</string>
 
     <!-- UPDATE NOTE -->
     <string name="Id_nota_A">Note ID</string>

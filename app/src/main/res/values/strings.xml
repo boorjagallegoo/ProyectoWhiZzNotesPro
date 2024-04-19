@@ -55,6 +55,7 @@
     <string name="Perfil_usuario">Perfil del usuario</string>
     <string name="Actualizar_pass">Actualizar contraseña</string>
     <string name="Agregar_contacto">Agregar contacto</string>
+    <string name="Vaciar_contactos">Eliminar todos los contactos</string>
 
     <!--ITEM NOTA-->
     <string name="Id_nota_Item">Id nota</string>
@@ -115,7 +116,12 @@
     <string name="ValidarTXT">Por favor complete al menos el nombre del contacto</string>
     <string name="Btn_Validar_Registro_C">Entendido</string>
 
-    <!-- ACTUALIZAR NOTA -->
+    <!--CUADRO DE DIÁLOGO - OPCIONES PARA EL CONTACTO-->
+    <string name="ElegirOpcionContactoTXT">Seleccione una opción para el contacto</string>
+    <string name="Btn_Eliminar_C">Eliminar</string>
+    <string name="Btn_Actualizar_C">Actualizar</string>
+
+    <!--ACTUALIZAR NOTA-->
     <string name="Id_nota_A">Id nota</string>
     <string name="Uid_Usuario_A">Uid del usuario</string>
     <string name="Correo_usuario_A">Correo del usuario</string>
@@ -127,7 +133,7 @@
     <string name="Estado_A">No finalizado</string>
     <string name="Estado_nuevo"> -- </string>
 
-    <!-- SPINNER - ESTADO -->
+    <!--SPINNER - ESTADO-->
     <string-array name="Estados_nota">
         <item>No finalizado</item>
         <item>Finalizado</item>

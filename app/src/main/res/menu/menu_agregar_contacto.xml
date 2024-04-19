@@ -10,4 +10,13 @@
 
     </item>
 
+    <item
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/icono_eliminar_cd"
+        android:id="@+id/Vaciar_contactos"
+        android:title="@string/Vaciar_contactos">
+
+
+    </item>
+
 </menu>
