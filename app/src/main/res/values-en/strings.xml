@@ -56,6 +56,7 @@
     <string name="Actualizar_pass">Update password</string>
     <string name="Agregar_contacto">Add contact</string>
     <string name="Vaciar_contactos">Delete all contacts</string>
+    <string name="Buscar_contactos">Find contacts</string>
 
     <!-- NOTE ITEM -->
     <string name="Id_nota_Item">Note ID</string>

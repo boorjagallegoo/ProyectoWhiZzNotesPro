@@ -1,10 +1,10 @@
 package com.bgallego.agenda_online.Contactos;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,10 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +52,6 @@ public class Listar_Contactos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_listar_contactos);
 
         ActionBar actionBar = getSupportActionBar();
@@ -77,6 +77,119 @@ public class Listar_Contactos extends AppCompatActivity {
     private void ListarContactos() {
         // Consulta para leer los contactos del usuario actual
         Query query = BD_Usuarios.child(user.getUid()).child("Contactos").orderByChild("nombres");
+        firebaseRecyclerOptions = new FirebaseRecyclerOptions.Builder<Contacto>().setQuery(query, Contacto.class).build();
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Contacto, ViewHolderContacto>(firebaseRecyclerOptions) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolderContacto viewHolderContacto, int position, @NonNull Contacto contacto) {
+                viewHolderContacto.SetearDatosContacto(
+                        getApplicationContext(),
+                        contacto.getId_contacto(),
+                        contacto.getUid_contacto(),
+                        contacto.getNombres(),
+                        contacto.getApellidos(),
+                        contacto.getCorreo(),
+                        contacto.getTelefono(),
+                        contacto.getEdad(),
+                        contacto.getDireccion(),
+                        contacto.getImagen()
+                );
+            }
+
+            @NonNull
+            @Override
+            public ViewHolderContacto onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contacto, parent, false);
+                ViewHolderContacto viewHolderContacto = new ViewHolderContacto(view);
+                viewHolderContacto.setOnClickListener(new ViewHolderContacto.ClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        // Toast.makeText(Listar_Contactos.this, "On Item Click", Toast.LENGTH_SHORT).show();
+                        // Obtenidendo los datos del contacto seleccionado
+                        String id_c = getItem(position).getId_contacto();
+                        String uid_usuario = getItem(position).getUid_contacto();
+                        String nombres_c = getItem(position).getNombres();
+                        String apellidos_c = getItem(position).getApellidos();
+                        String correo_c = getItem(position).getCorreo();
+                        String telefono_c = getItem(position).getTelefono();
+                        String edad_c = getItem(position).getEdad();
+                        String direccion_c = getItem(position).getDireccion();
+                        String imagen_c = getItem(position).getImagen();
+
+                        // Enviar los datos a la siguiente actividad
+                        Intent intent = new Intent(Listar_Contactos.this, Detalle_contacto.class);
+                        intent.putExtra("id_c", id_c);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("nombres_c", nombres_c);
+                        intent.putExtra("apellidos_c", apellidos_c);
+                        intent.putExtra("correo_c", correo_c);
+                        intent.putExtra("telefono_c", telefono_c);
+                        intent.putExtra("edad_c", edad_c);
+                        intent.putExtra("direccion_c", direccion_c);
+                        intent.putExtra("imagen_c", imagen_c);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+                        String id_c = getItem(position).getId_contacto();
+                        String uid_usuario = getItem(position).getUid_contacto();
+                        String nombres_c = getItem(position).getNombres();
+                        String apellidos_c = getItem(position).getApellidos();
+                        String correo_c = getItem(position).getCorreo();
+                        String telefono_c = getItem(position).getTelefono();
+                        String edad_c = getItem(position).getEdad();
+                        String direccion_c = getItem(position).getDireccion();
+                        String imagen_c = getItem(position).getImagen();
+
+                        // Toast.makeText(Listar_Contactos.this, "On Item Long Click", Toast.LENGTH_SHORT).show();
+                        Button Btn_Eliminar_C, Btn_Actualizar_C;
+
+                        dialog.setContentView(R.layout.cuadro_dialogo_opciones_contacto);
+
+                        Btn_Eliminar_C = dialog.findViewById(R.id.Btn_Eliminar_C);
+                        Btn_Actualizar_C = dialog.findViewById(R.id.Btn_Actualizar_C);
+
+                        Btn_Eliminar_C.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // Toast.makeText(Listar_Contactos.this, "Eliminar contacto", Toast.LENGTH_SHORT).show();
+                                EliminarContacto(id_c);
+                                dialog.dismiss();
+                            }
+                        });
+
+                        Btn_Actualizar_C.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contacto.class); // Nos lleva a la siguiente actividad
+                                intent.putExtra("id_c", id_c);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("nombres_c", nombres_c);
+                                intent.putExtra("apellidos_c", apellidos_c);
+                                intent.putExtra("correo_c", correo_c);
+                                intent.putExtra("telefono_c", telefono_c);
+                                intent.putExtra("edad_c", edad_c);
+                                intent.putExtra("direccion_c", direccion_c);
+                                intent.putExtra("imagen_c", imagen_c);
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialog.show();
+                    }
+                });
+                return viewHolderContacto;
+            }
+        };
+
+        recyclerViewContactos.setLayoutManager(new GridLayoutManager(Listar_Contactos.this, 2));
+        firebaseRecyclerAdapter.startListening();
+        recyclerViewContactos.setAdapter(firebaseRecyclerAdapter);
+    }
+
+    private void BuscarContactos(String Nombre_Contacto) {
+        Query query = BD_Usuarios.child(user.getUid()).child("Contactos").orderByChild("nombres").startAt(Nombre_Contacto).endAt(Nombre_Contacto + "\uf8ff");
         firebaseRecyclerOptions = new FirebaseRecyclerOptions.Builder<Contacto>().setQuery(query, Contacto.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Contacto, ViewHolderContacto>(firebaseRecyclerOptions) {
             @Override
@@ -271,8 +384,26 @@ public class Listar_Contactos extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_agregar_contacto, menu);
+        MenuItem item = menu.findItem(R.id.Buscar_contactos);
+        SearchView searchView = (SearchView) item.getActionView();
+        assert searchView != null;
+        searchView.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                BuscarContactos(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                BuscarContactos(newText);
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
