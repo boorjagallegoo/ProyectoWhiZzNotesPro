@@ -132,6 +132,15 @@ public class Listar_Contactos extends AppCompatActivity {
                     @Override
                     public void onItemLongClick(View view, int position) {
                         String id_c = getItem(position).getId_contacto();
+                        String uid_usuario = getItem(position).getUid_contacto();
+                        String nombres_c = getItem(position).getNombres();
+                        String apellidos_c = getItem(position).getApellidos();
+                        String correo_c = getItem(position).getCorreo();
+                        String telefono_c = getItem(position).getTelefono();
+                        String edad_c = getItem(position).getEdad();
+                        String direccion_c = getItem(position).getDireccion();
+                        String imagen_c = getItem(position).getImagen();
+
                         // Toast.makeText(Listar_Contactos.this, "On Item Long Click", Toast.LENGTH_SHORT).show();
                         Button Btn_Eliminar_C, Btn_Actualizar_C;
 
@@ -152,7 +161,17 @@ public class Listar_Contactos extends AppCompatActivity {
                         Btn_Actualizar_C.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(Listar_Contactos.this, "Actualizar contacto", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contacto.class); // Nos lleva a la siguiente actividad
+                                intent.putExtra("id_c", id_c);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("nombres_c", nombres_c);
+                                intent.putExtra("apellidos_c", apellidos_c);
+                                intent.putExtra("correo_c", correo_c);
+                                intent.putExtra("telefono_c", telefono_c);
+                                intent.putExtra("edad_c", edad_c);
+                                intent.putExtra("direccion_c", direccion_c);
+                                intent.putExtra("imagen_c", imagen_c);
+                                startActivity(intent);
                                 dialog.dismiss();
                             }
                         });

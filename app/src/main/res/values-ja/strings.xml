@@ -205,4 +205,15 @@
     <string name="Direccion_C_D"> -- </string>
     <string name="Btn_Actualizar_D"> -- </string>
 
+    <!--ACTUALIZAR CONTACTO-->
+    <string name="Id_C_A"> -- </string>
+    <string name="Uid_C_A"> -- </string>
+    <string name="Nombres_C_A"> -- </string>
+    <string name="Apellidos_C_A"> -- </string>
+    <string name="Correo_C_A"> -- </string>
+    <string name="Telefono_C_A"> -- </string>
+    <string name="Edad_C_A"> -- </string>
+    <string name="Direccion_C_A"> -- </string>
+    <string name="Btn_Actualizar_C_A">アップデート</string>
+
 </resources>
