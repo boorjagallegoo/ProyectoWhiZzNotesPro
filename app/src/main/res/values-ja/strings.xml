@@ -219,4 +219,10 @@
     <string name="Direccion_C_A"> -- </string>
     <string name="Btn_Actualizar_C_A">アップデート</string>
 
+    <!--アプリケーション情報-->
+    <string name="Desarrollador">開発者: Borja G.</string>
+    <string name="CorreoSoporte">サポート: bgallego@gmail.com</string>
+    <string name="Version">バージョン: 1.0</string>
+    <string name="EntendidoInfo">理解しました</string>
+
 </resources>
