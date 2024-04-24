@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Contactos.Detalle_contacto">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -104,15 +104,6 @@
                 android:text="@string/Edad_C_D"
                 android:textSize="20sp" />
 
-            <!-- Telefono del contacto detalle -->
-            <TextView
-                android:id="@+id/Telefono_C_D"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/robotoslab"
-                android:text="@string/Telefono_C_D"
-                android:textSize="20sp" />
-
             <!-- Dirección del contacto detalle -->
             <TextView
                 android:id="@+id/Direccion_C_D"
@@ -121,6 +112,79 @@
                 android:fontFamily="@font/robotoslab"
                 android:text="@string/Direccion_C_D"
                 android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="#000" />
+
+            <!-- Telefono del contacto detalle -->
+            <TextView
+                android:id="@+id/Telefono_C_D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoslab"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:drawableStart="@drawable/icono_telefono"
+                android:drawablePadding="10dp"
+                android:text="@string/Telefono_C_D"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- Llamar al contacto -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/icono_llamada" />
+
+                    <Button
+                        android:id="@+id/Llamar_C"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/Llamar_C" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!-- Enviar mensaje al contacto -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/icono_enviar_mensaje" />
+
+                    <Button
+                        android:id="@+id/Mensaje_C"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/Mensaje_C" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

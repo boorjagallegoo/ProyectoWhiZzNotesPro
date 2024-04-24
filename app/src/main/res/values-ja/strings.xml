@@ -205,6 +205,8 @@
     <string name="Edad_C_D"> -- </string>
     <string name="Direccion_C_D"> -- </string>
     <string name="Btn_Actualizar_D"> -- </string>
+    <string name="Llamar_C">電話</string>
+    <string name="Mensaje_C">メッセージ</string>
 
     <!--ACTUALIZAR CONTACTO-->
     <string name="Id_C_A"> -- </string>

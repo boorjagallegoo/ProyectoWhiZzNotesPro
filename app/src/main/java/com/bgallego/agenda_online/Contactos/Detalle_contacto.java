@@ -1,12 +1,21 @@
 package com.bgallego.agenda_online.Contactos;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.bgallego.agenda_online.R;
 import com.bumptech.glide.Glide;
@@ -16,7 +25,9 @@ public class Detalle_contacto extends AppCompatActivity {
     ImageView Imagen_C_D;
     TextView Id_C_D, Uid_Usuario_D, Nombres_C_D, Apellidos_C_D, Correo_C_D, Telefono_C_D, Edad_C_D, Direccion_C_D;
 
-    /* String donde almacenaremos los datos del contacto seleccionado */ String id_c, uid_usuario, nombres_c, apellidos_c, correo_c, telefono_c, edad_c, direccion_c;
+    /* String donde almacenaremos los datos del contacto seleccionado */
+    String id_c, uid_usuario, nombres_c, apellidos_c, correo_c, telefono_c, edad_c, direccion_c;
+    Button Llamar_C, Mensaje_C;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +45,30 @@ public class Detalle_contacto extends AppCompatActivity {
         SetearDatosContacto();
         ObtenerImagen();
 
+        Llamar_C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(Detalle_contacto.this,
+                        Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                    LlamarContacto();
+                } else {
+                    SolicitudPermisoLlamada.launch(Manifest.permission.CALL_PHONE);
+                }
+            }
+        });
+
+        Mensaje_C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(Detalle_contacto.this,
+                        Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+                    EnviarMensaje();
+                } else {
+                    SolicitudPermisoMensaje.launch(Manifest.permission.SEND_SMS);
+                }
+            }
+        });
+
     }
 
     private void InicializarVariables() {
@@ -46,6 +81,8 @@ public class Detalle_contacto extends AppCompatActivity {
         Telefono_C_D = findViewById(R.id.Telefono_C_D);
         Edad_C_D = findViewById(R.id.Edad_C_D);
         Direccion_C_D = findViewById(R.id.Direccion_C_D);
+        Llamar_C = findViewById(R.id.Llamar_C);
+        Mensaje_C = findViewById(R.id.Mensaje_C);
 
     }
 
@@ -69,7 +106,7 @@ public class Detalle_contacto extends AppCompatActivity {
         Nombres_C_D.setText("Nombres: " + nombres_c);
         Apellidos_C_D.setText("Apellidos: " + apellidos_c);
         Correo_C_D.setText("Correo: " + correo_c);
-        Telefono_C_D.setText("Teléfono: " + telefono_c);
+        Telefono_C_D.setText(telefono_c);
         Edad_C_D.setText("Edad: " + edad_c);
         Direccion_C_D.setText("Dirección: " + direccion_c);
     }
@@ -85,6 +122,48 @@ public class Detalle_contacto extends AppCompatActivity {
         }
 
     }
+
+    private void LlamarContacto() {
+        String telefono = Telefono_C_D.getText().toString();
+        if (!telefono.equals("")) {
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:" + telefono));
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "El contacto no cuenta con un número telefónico", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void EnviarMensaje() {
+        String telefono = Telefono_C_D.getText().toString();
+        if (!telefono.equals("")) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("smsto:" + telefono));
+            intent.putExtra("sms_body", "");
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "El contacto no cuenta con un número telefónico", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Gestionamos si el permiso a sido concedido por el usuario
+    private ActivityResultLauncher<String> SolicitudPermisoLlamada =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    LlamarContacto();
+                } else {
+                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+    private ActivityResultLauncher<String> SolicitudPermisoMensaje =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    EnviarMensaje();
+                } else {
+                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show();
+                }
+            });
 
     @Override
     public boolean onSupportNavigateUp() {
