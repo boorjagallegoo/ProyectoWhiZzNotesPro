@@ -59,6 +59,7 @@
     <string name="Agregar_contacto">Agregar contacto</string>
     <string name="Vaciar_contactos">Eliminar todos los contactos</string>
     <string name="Buscar_contactos">Buscar contactos</string>
+    <string name="Calendario">Calendario</string>
 
     <!--ITEM NOTA-->
     <string name="Id_nota_Item">Id nota</string>
@@ -135,6 +136,11 @@
     <string name="MensajeTXT_Aut">Para realizar la eliminación de su cuenta, tendrá que cerrar sesión, luego logearse, y en un plazo de 5 minutos podrá eliminar su cuenta de nuestra aplicación, una vez pasado ese tiempo, tendrá que realizar nuevamente los pasos mencionados. </string>
     <string name="Btn_Entendido_Aut">Entendido</string>
     <string name="Btn_Cerrar_Sesion_Aut">Cerrar sesión</string>
+
+    <!--CUADRO DE DIÁLOGO - MOSTRAR FECHA-->
+    <string name="Txt_hoy">Hoy es: </string>
+    <string name="Fecha_hoy"> -- </string>
+    <string name="Btn_cerrar">Cerrar</string>
 
     <!--ACTUALIZAR NOTA-->
     <string name="Id_nota_A">Id nota</string>

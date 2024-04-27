@@ -59,6 +59,7 @@
     <string name="Agregar_contacto">Add contact</string>
     <string name="Vaciar_contactos">Delete all contacts</string>
     <string name="Buscar_contactos">Find contacts</string>
+    <string name="Calendario">Calendar</string>
 
     <!-- NOTE ITEM -->
     <string name="Id_nota_Item">Note ID</string>
@@ -135,6 +136,11 @@
     <string name="MensajeTXT_Aut">To delete your account, you will have to log out, then log in, and within 5 minutes you will be able to delete your account from our application. Once that time has passed, you will have to perform the aforementioned steps again. </string>
     <string name="Btn_Entendido_Aut">Understood</string>
     <string name="Btn_Cerrar_Sesion_Aut">Sign off</string>
+
+    <!--CUADRO DE DIÁLOGO - MOSTRAR FECHA-->
+    <string name="Txt_hoy">Today is: </string>
+    <string name="Fecha_hoy"> -- </string>
+    <string name="Btn_cerrar">Close</string>
 
     <!-- UPDATE NOTE -->
     <string name="Id_nota_A">Note ID</string>

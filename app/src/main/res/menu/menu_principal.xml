@@ -11,6 +11,14 @@
     </item>
 
     <item
+        android:id="@+id/Calendario"
+        android:icon="@drawable/icono_fecha"
+        android:title="@string/Calendario"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+    <item
         android:id="@+id/Perfil_usuario"
         android:icon="@drawable/icono_perfil_usuario"
         android:title="@string/Perfil_usuario"

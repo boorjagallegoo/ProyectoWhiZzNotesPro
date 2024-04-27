@@ -59,6 +59,7 @@
     <string name="Agregar_contacto">連絡先を追加</string>
     <string name="Vaciar_contactos">すべての連絡先を削除</string>
     <string name="Buscar_contactos">連絡先を探す</string>
+    <string name="Calendario">カレンダー</string>
 
     <!-- ITEM NOTA -->
     <string name="Id_nota_Item">メモID</string>
@@ -135,6 +136,11 @@
     <string name="MensajeTXT_Aut">アカウントを削除するには、ログアウトしてからログインする必要があり、5 分以内にアプリケーションからアカウントを削除できるようになります。その時間が経過すると、前述の手順を再度実行する必要があります。</string>
     <string name="Btn_Entendido_Aut">理解した</string>
     <string name="Btn_Cerrar_Sesion_Aut">サインオフ</string>
+
+    <!--CUADRO DE DIÁLOGO - MOSTRAR FECHA-->
+    <string name="Txt_hoy">今日は： </string>
+    <string name="Fecha_hoy"> -- </string>
+    <string name="Btn_cerrar">近い</string>
 
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">メモID</string>

@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import com.bgallego.agenda_online.Notas.Agregar_Nota;
 import com.bgallego.agenda_online.Notas.Listar_Notas;
 import com.bgallego.agenda_online.Notas.Notas_Importantes;
 import com.bgallego.agenda_online.Perfil.Perfil_Usuario;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,12 +39,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MenuPrincipal extends AppCompatActivity {
 
     Button AgregarNotas, ListarNotas, Importantes, Contactos, AcercaDe, CerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
+    ImageView Imagen_usuario;
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
     Button EstadoCuentaPrincipal;
     ProgressBar progressBarDatos;
@@ -51,7 +57,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
     DatabaseReference Usuarios; // Llamamos a nuestra Base de datos (Usuarios).
 
-    Dialog dialog_cuenta_verificada, dialog_informacion;
+    Dialog dialog_cuenta_verificada, dialog_informacion, dialog_fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,7 @@ public class MenuPrincipal extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("");
 
+        Imagen_usuario = findViewById(R.id.Imagen_usuario);
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
@@ -69,6 +76,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         dialog_cuenta_verificada = new Dialog(this);
         dialog_informacion = new Dialog(this);
+        dialog_fecha = new Dialog(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Espere por favor ...");
@@ -252,12 +260,52 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     private void Informacion() {
+
+        // ImageView Ir_facebook, Ir_instagram, Ir_youtube, Ir_twitter;
         Button EntendidoInfo;
 
         dialog_informacion.setContentView(R.layout.cuadro_dialogo_informacion);
 
+      /*  Ir_facebook = dialog_informacion.findViewById(R.id.Ir_facebook);
+        Ir_instagram = dialog_informacion.findViewById(R.id.Ir_instagram);
+        Ir_youtube = dialog_informacion.findViewById(R.id.Ir_youtube);
+        Ir_twitter = dialog_informacion.findViewById(R.id.Ir_twitter);
+        */
+
         EntendidoInfo = dialog_informacion.findViewById(R.id.EntendidoInfo);
 
+      /*  Ir_facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ir_p_facebook = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com"));
+                startActivity(ir_p_facebook);
+            }
+        });
+
+        Ir_instagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ir_p_instagram = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com"));
+                startActivity(ir_p_instagram);
+            }
+        });
+
+        Ir_youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ir_p_youtube = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com"));
+                startActivity(ir_p_youtube);
+            }
+        });
+
+        Ir_twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ir_p_twitter = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com"));
+                startActivity(ir_p_twitter);
+            }
+        });
+*/
         EntendidoInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -267,6 +315,32 @@ public class MenuPrincipal extends AppCompatActivity {
 
         dialog_informacion.show();
         dialog_informacion.setCanceledOnTouchOutside(false);
+    }
+
+    private void VisualizarFecha() {
+        TextView Fecha_hoy;
+        Button Btn_cerrar;
+
+        dialog_fecha.setContentView(R.layout.cuadro_dialogo_fecha);
+
+        Fecha_hoy = dialog_fecha.findViewById(R.id.Fecha_hoy);
+        Btn_cerrar = dialog_fecha.findViewById(R.id.Btn_cerrar);
+
+        /* Obtener fecha actual */
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d 'de' MMMM 'del' yyyy"); // 27 de abril del 2024
+        String fecha = simpleDateFormat.format(date);
+        Fecha_hoy.setText(fecha);
+
+        Btn_cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_fecha.dismiss();
+            }
+        });
+
+        dialog_fecha.show();
+        dialog_fecha.setCanceledOnTouchOutside(false);
     }
 
     /**
@@ -319,6 +393,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     String uid = "" + snapshot.child("uid").getValue();
                     String nombres = "" + snapshot.child("nombre").getValue();
                     String correo = "" + snapshot.child("correo").getValue();
+                    String imagen = "" + snapshot.child("imagen_perfil").getValue();
 
                     // Setear los datos en los respectivos TextView
                     UidPrincipal.setText(uid);
@@ -332,14 +407,25 @@ public class MenuPrincipal extends AppCompatActivity {
                     Contactos.setEnabled(true);
                     AcercaDe.setEnabled(true);
                     CerrarSesion.setEnabled(true);
+
+                    ObtenerImagen(imagen);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+    }
+
+    private void ObtenerImagen(String imagen) {
+        try {
+            // Si la imagen se ha traido con éxito
+            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.imagen_usuario).into(Imagen_usuario);
+        } catch (Exception e) {
+            // Si la imagen no fue traida con éxito
+            Glide.with(getApplicationContext()).load(R.drawable.imagen_usuario).into(Imagen_usuario);
+        }
     }
 
     @Override
@@ -353,6 +439,9 @@ public class MenuPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.Perfil_usuario) {
             startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
+        }
+        if (item.getItemId() == R.id.Calendario) {
+            VisualizarFecha();
         }
         if (item.getItemId() == R.id.Configuracion) {
             String uid_usuario = UidPrincipal.getText().toString();
