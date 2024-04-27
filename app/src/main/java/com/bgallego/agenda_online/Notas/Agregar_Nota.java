@@ -1,4 +1,4 @@
-package com.bgallego.agenda_online.AgregarNota;
+package com.bgallego.agenda_online.Notas;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bgallego.agenda_online.Objetos.Nota;
 import com.bgallego.agenda_online.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,6 +34,9 @@ public class Agregar_Nota extends AppCompatActivity {
     Button Btn_Calendario;
 
     int dia, mes, anho;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     DatabaseReference BD_Firebase;
 
@@ -92,7 +97,10 @@ public class Agregar_Nota extends AppCompatActivity {
         Descripcion = findViewById(R.id.Descripcion);
         Btn_Calendario = findViewById(R.id.Btn_Calendario);
 
-        BD_Firebase = FirebaseDatabase.getInstance().getReference();
+        BD_Firebase = FirebaseDatabase.getInstance().getReference("Usuarios");
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
     }
 
     private void ObtenerDatos() {
@@ -110,7 +118,7 @@ public class Agregar_Nota extends AppCompatActivity {
         Fecha_hora_actual.setText(Fecha_hora_registro);
     }
 
-    public void AgregarNota() { // Lo cambiamos de private a public para el test
+    private void AgregarNota() {
 
         // Obtener los datos
         String uid_usuario = Uid_Usuario.getText().toString();
@@ -138,7 +146,7 @@ public class Agregar_Nota extends AppCompatActivity {
             // Establecer el nombre de la BD
             String Nombre_BD = "Notas_Publicadas";
 
-            BD_Firebase.child(Nombre_BD).child(id_nota).setValue(nota);
+            BD_Firebase.child(user.getUid()).child(Nombre_BD).child(id_nota).setValue(nota);
 
             Toast.makeText(this, "Se ha agregado la nota exitosamente", Toast.LENGTH_SHORT).show();
             onBackPressed();

@@ -1,4 +1,4 @@
-package com.bgallego.agenda_online.NotasImportantes;
+package com.bgallego.agenda_online.Notas;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -74,7 +74,7 @@ public class Notas_Importantes extends AppCompatActivity {
 
     private void ComprobarUsuario() {
         if (user == null) {
-            Toast.makeText(com.bgallego.agenda_online.NotasImportantes.Notas_Importantes.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(com.bgallego.agenda_online.Notas.Notas_Importantes.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         } else {
             ListarNotasImportantes();
         }
@@ -153,6 +153,8 @@ public class Notas_Importantes extends AppCompatActivity {
         };
 
         linearLayoutManager = new LinearLayoutManager(Notas_Importantes.this, LinearLayoutManager.VERTICAL, false);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
 
         RecyclerViewNotasImportantes.setLayoutManager(linearLayoutManager);
         RecyclerViewNotasImportantes.setAdapter(firebaseRecyclerAdapter);

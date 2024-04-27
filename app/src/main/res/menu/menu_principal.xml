@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/Configuracion"
+        android:icon="@drawable/icono_configuracion"
+        android:title="@string/Configuracion"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+    <item
         android:id="@+id/Perfil_usuario"
         android:icon="@drawable/icono_perfil_usuario"
         android:title="@string/Perfil_usuario"

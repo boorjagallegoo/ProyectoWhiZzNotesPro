@@ -21,10 +21,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
+import com.bgallego.agenda_online.Configuracion.Configuracion;
 import com.bgallego.agenda_online.Contactos.Listar_Contactos;
-import com.bgallego.agenda_online.ListarNotas.Listar_Notas;
-import com.bgallego.agenda_online.NotasImportantes.Notas_Importantes;
+import com.bgallego.agenda_online.Notas.Agregar_Nota;
+import com.bgallego.agenda_online.Notas.Listar_Notas;
+import com.bgallego.agenda_online.Notas.Notas_Importantes;
 import com.bgallego.agenda_online.Perfil.Perfil_Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -352,6 +353,13 @@ public class MenuPrincipal extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.Perfil_usuario) {
             startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
+        }
+        if (item.getItemId() == R.id.Configuracion) {
+            String uid_usuario = UidPrincipal.getText().toString();
+
+            Intent intent = new Intent(MenuPrincipal.this, Configuracion.class);
+            intent.putExtra("Uid", uid_usuario);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

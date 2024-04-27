@@ -52,7 +52,9 @@
     <string name="Agregar_Nota_BD">Add</string>
     <string name="Actualizar_Nota_BD">Update</string>
     <string name="Vaciar_Todas_Las_Notas">Empty all notes</string>
+    <string name="Filtrar_Notas">Filter notes</string>
     <string name="Perfil_usuario">User Profile</string>
+    <string name="Configuracion">Setting</string>
     <string name="Actualizar_pass">Update password</string>
     <string name="Agregar_contacto">Add contact</string>
     <string name="Vaciar_contactos">Delete all contacts</string>
@@ -121,6 +123,18 @@
     <string name="ElegirOpcionContactoTXT">Select an option for the contact</string>
     <string name="Btn_Eliminar_C">Delete</string>
     <string name="Btn_Actualizar_C">Update</string>
+
+    <!--CUADRO DE DIÁLOGO - FILTRAR NOTAS-->
+    <string name="FiltroTXT">Filter notes: </string>
+    <string name="Todas_notas">All</string>
+    <string name="Notas_Finalizadas">Finished</string>
+    <string name="Notas_No_Finalizadas">Not Completed</string>
+
+    <!--CUADRO DE DIÁLOGO - AUTENTICACIÓN-->
+    <string name="ImportanteTXT_Aut">Read carefully</string>
+    <string name="MensajeTXT_Aut">To delete your account, you will have to log out, then log in, and within 5 minutes you will be able to delete your account from our application. Once that time has passed, you will have to perform the aforementioned steps again. </string>
+    <string name="Btn_Entendido_Aut">Understood</string>
+    <string name="Btn_Cerrar_Sesion_Aut">Sign off</string>
 
     <!-- UPDATE NOTE -->
     <string name="Id_nota_A">Note ID</string>
@@ -224,5 +238,9 @@
     <string name="CorreoSoporte">Support: bgallego@gmail.com</string>
     <string name="Version">Version: 1.0</string>
     <string name="EntendidoInfo">Understood</string>
+
+    <!--Configuración-->
+    <string name="Uid_Eliminar">User uid</string>
+    <string name="EliminarCuenta">Delete my account</string>
 
 </resources>

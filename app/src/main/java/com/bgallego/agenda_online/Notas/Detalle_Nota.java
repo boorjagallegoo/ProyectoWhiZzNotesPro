@@ -1,4 +1,4 @@
-package com.bgallego.agenda_online.Detalle;
+package com.bgallego.agenda_online.Notas;
 
 import android.os.Bundle;
 import android.view.View;
