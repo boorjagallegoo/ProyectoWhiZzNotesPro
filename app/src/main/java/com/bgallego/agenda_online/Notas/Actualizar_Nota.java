@@ -1,8 +1,4 @@
-package com.bgallego.agenda_online.ActualizarNota;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
+package com.bgallego.agenda_online.Notas;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -10,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,8 +16,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bgallego.agenda_online.AgregarNota.Agregar_Nota;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bgallego.agenda_online.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,12 +39,15 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     Button Btn_Calendario_A;
 
     // DECLARAR LOS STRING PARA ALMACENAR LOS DATOS RECUPERADOS DE LA ACTIVIDAD LISTAR NOTA
-    String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
+    String id_nota_R, uid_usuario_R, correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
     ImageView Tarea_Finalizada, Tarea_No_Finalizada;
 
     Spinner Spinner_estado;
     int dia, mes, anho;
+
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +92,8 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         Spinner_estado = findViewById(R.id.Spinner_estado);
         Estado_nuevo = findViewById(R.id.Estado_nuevo);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
     }
 
     private void RecuperarDatos() {
@@ -115,7 +120,6 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         Descripcion_A.setText(descripcion_R);
         Fecha_A.setText(fecha_R);
         Estado_A.setText(estado_R);
-
     }
 
     private void ComprobarEstadoNota() {
@@ -133,7 +137,7 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         }
     }
 
-    private void SeleccionarFecha(){
+    private void SeleccionarFecha() {
         final Calendar calendario = Calendar.getInstance();
 
         dia = calendario.get(Calendar.DAY_OF_MONTH);
@@ -147,10 +151,10 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
                 String diaFormateado, mesFormateado;
 
                 //OBTENER DIA
-                if (DiaSeleccionado < 10){
-                    diaFormateado = "0"+String.valueOf(DiaSeleccionado);
+                if (DiaSeleccionado < 10) {
+                    diaFormateado = "0" + String.valueOf(DiaSeleccionado);
                     // Antes: 9/11/2022 -  Ahora 09/11/2022
-                }else {
+                } else {
                     diaFormateado = String.valueOf(DiaSeleccionado);
                     //Ejemplo 13/08/2022
                 }
@@ -158,21 +162,21 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
                 //OBTENER EL MES
                 int Mes = MesSeleccionado + 1;
 
-                if (Mes < 10){
-                    mesFormateado = "0"+String.valueOf(Mes);
+                if (Mes < 10) {
+                    mesFormateado = "0" + String.valueOf(Mes);
                     // Antes: 09/8/2022 -  Ahora 09/08/2022
-                }else {
+                } else {
                     mesFormateado = String.valueOf(Mes);
                     //Ejemplo 13/10/2022 - 13/11/2022 - 13/12/2022
 
                 }
 
                 //Setear fecha en TextView
-                Fecha_A.setText(diaFormateado + "/" + mesFormateado + "/"+ AnioSeleccionado);
+                Fecha_A.setText(diaFormateado + "/" + mesFormateado + "/" + AnioSeleccionado);
 
             }
         }
-                ,anho,mes,dia);
+                , anho, mes, dia);
         datePickerDialog.show();
     }
 
@@ -202,10 +206,10 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
 
         // Llamar a Firebase
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Notas_Publicadas");
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Usuarios");
 
         // Consulta
-        Query query = databaseReference.orderByChild("id_nota").equalTo(id_nota_R);
+        Query query = databaseReference.child(user.getUid()).child("Notas_Publicadas").orderByChild("id_nota").equalTo(id_nota_R);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -236,7 +240,7 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         String estado_seleccionado = adapterView.getItemAtPosition(i).toString(); // Obtener el estado seleccionado en el AdapterView
         Estado_nuevo.setText(estado_seleccionado); // Establecer el estado seleccionado en un elemento de interfaz de usuario (TextView, supongamos)
 
-        if (ESTADO_ACTUAL.equals("Finalizado")){
+        if (ESTADO_ACTUAL.equals("Finalizado")) {
             Estado_nuevo.setText(Posicion_1);
         }
 

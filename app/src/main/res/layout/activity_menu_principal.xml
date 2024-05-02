@@ -28,12 +28,14 @@
                 android:weightSum="4">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Imagen_usuario"
                     android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="2dp"
                     android:layout_weight="1"
-                    android:src="@drawable/imagen_perfil_usuario" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/imagen_usuario" />
 
                 <!-- DATOS USUARIO CONECTADO -->
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -145,8 +147,8 @@
                             android:id="@+id/EstadoCuentaPrincipal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="#607d8b"
                             android:layout_marginStart="3dp"
+                            android:backgroundTint="#607d8b"
                             android:fontFamily="@font/robotoslab"
                             android:text="@string/EstadoCuentaPrincipal"
                             android:textColor="#ffff"
@@ -350,7 +352,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/salir" />
+                        android:src="@drawable/cerrar_sesion" />
 
                     <Button
                         android:id="@+id/CerrarSesion"
@@ -360,7 +362,6 @@
                         android:enabled="false"
                         android:fontFamily="@font/robotoslab"
                         android:text="@string/CerrarSesion" />
-
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

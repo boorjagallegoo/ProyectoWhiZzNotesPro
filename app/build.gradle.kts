@@ -41,7 +41,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.11.0")
     implementation ("androidx.annotation:annotation:1.7.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.activity:activity:1.8.2")
+    implementation("androidx.activity:activity:1.9.0")
     // Lottie
     implementation("com.airbnb.android:lottie:3.0.1")
     // LiveData
@@ -49,7 +49,7 @@ dependencies {
     // ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     // Firebase
-    implementation ("com.google.firebase:firebase-analytics:21.6.1")
+    implementation ("com.google.firebase:firebase-analytics:21.6.2")
     implementation("com.google.firebase:firebase-auth:22.3.1") /*AUTENTICACIÓN DE FIREBASE*/
     implementation("com.google.firebase:firebase-database:20.3.1") /*BASE DE DATOS DE FIREBASE*/
     implementation ("com.firebaseui:firebase-ui-database:8.0.0") /*FIREBASE UI*/
